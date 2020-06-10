@@ -9,7 +9,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Grid from '@material-ui/core/Grid';
 import { Redirect } from "react-router-dom";
-import Link from '@material-ui/core/Link';
+//import Link from '@material-ui/core/Link';
+import { scroller, Link } from 'react-scroll';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     backgroundColor: '#ffffff',
-    borderBottom: 'solid #009900',
+    borderBottom: '1px solid #E8E8E8',
     boxShadow: 'none'
   },
   sectionDesktop: {
@@ -54,7 +55,8 @@ export const Header = () => {
   }
   const handleAboutUsClose = () => {
     setAnchorEl(null);
-    return <Redirect to="/about-us" source={'reg'} />
+    //return <Redirect to="/about-us" source={'reg'} />
+    scrollToAboutUs();
   };
 
   const handleOurContentClose = () => {
@@ -84,6 +86,22 @@ export const Header = () => {
       </Menu>
     );
   }
+  
+  const scrollToAboutUs = () => {
+    scroller.scrollTo('/about-us', {
+      duration: 2000,
+      delay: 0,
+      smooth: 'easeInOutQuart'
+    })
+  };
+
+  const scrollToContactUs = () => {
+    scroller.scrollTo('/contact-us', {
+      duration: 2000,
+      delay: 0,
+      smooth: 'easeInOutQuart'
+    })
+  };
 
   const renderDesktopMenu = () => {
     return (
@@ -92,11 +110,13 @@ export const Header = () => {
           <Typography variant="h6" className={classes.desktopMenu}></Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="h6" className={classes.desktopMenu}></Typography>
+          <Typography variant="h6">
+            <Link className={classes.desktopMenu} onClick={() => scrollToContactUs()}>contact us</Link>
+          </Typography>
         </Grid>
         <Grid item xs={3}>
           <Typography variant="h6">
-            <Link className={classes.desktopMenu} href='/about-us'>about us</Link>
+            <Link className={classes.desktopMenu} onClick={() => scrollToAboutUs()}>about us</Link>
           </Typography>
         </Grid>
         <Grid item xs={3}>

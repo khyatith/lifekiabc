@@ -6,8 +6,10 @@ import emailjs from 'emailjs-com';
 import Alert from '@material-ui/lab/Alert';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
+import { Element } from 'react-scroll';
 
-export const ContactUsForm = () => {
+export const ContactUsForm = (props) => {
+  const { isDesktop } = props;
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [message, setMessage] = useState(null);
@@ -19,13 +21,17 @@ export const ContactUsForm = () => {
     contactUsBtn: {
       color: '#ffffff',
       backgroundColor: '#990000',
-      margin: '0 auto'
+      margin: '0 auto',
+      "&:hover": {
+        backgroundColor: "#990000",
+        opacity: '0.8'
+      }
     },
     root: {
       marginBottom: '20px',
       marginTop: '20px',
       '& .MuiTextField-root': {
-        width: '500px',
+        width: isDesktop ? '500px' : '100%',
         marginBottom: '50px'
       }
     }
@@ -100,7 +106,7 @@ export const ContactUsForm = () => {
   const classes = useStyles();
 
   return (
-    <>
+    <Element id='/contact-us' name='/contact-us'>
       {failure && alertOpen && <CustomAlert severity="error" message="There was a problem sending your message.Please try again later or contact us at lifekiabc.com" />}
       {success && alertOpen && <CustomAlert severity="success" message="Thank you for contacting us.We will get back to you soon" />}
       <form className={classes.root} noValidate autoComplete="off">
@@ -119,6 +125,6 @@ export const ContactUsForm = () => {
       <Button variant="contained" className={classes.contactUsBtn} onClick={sendMessage}>
         <h3>Contact Us!</h3>
       </Button>
-    </>
+    </Element>
   )
 }
