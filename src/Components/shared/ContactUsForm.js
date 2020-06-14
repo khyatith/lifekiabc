@@ -22,6 +22,8 @@ export const ContactUsForm = (props) => {
       color: '#ffffff',
       backgroundColor: '#990000',
       margin: '0 auto',
+      textTransform: 'none',
+      fontSize: '20px',
       "&:hover": {
         backgroundColor: "#990000",
         opacity: '0.8'
@@ -110,11 +112,11 @@ export const ContactUsForm = (props) => {
       {failure && alertOpen && <CustomAlert severity="error" message="There was a problem sending your message.Please try again later or contact us at lifekiabc.com" />}
       {success && alertOpen && <CustomAlert severity="success" message="Thank you for contacting us.We will get back to you soon" />}
       <form className={classes.root} noValidate autoComplete="off">
-        <TextField error={!emailValidated} required id="name" label="Your Name" value={name} onChange={handleNameChange}/>
-        <TextField error={!emailValidated} required id="email" label="Your Email" value={email} onChange={handleEmailChange}/>
+        <TextField error={!emailValidated} required id="name" label="Name" value={name} onChange={handleNameChange}/>
+        <TextField error={!emailValidated} required id="email" label="Email" value={email} onChange={handleEmailChange}/>
         <TextField
           id="query"
-          label="Your Question (if any)"
+          label="Message"
           multiline
           rows="4"
           variant="outlined"
@@ -122,8 +124,8 @@ export const ContactUsForm = (props) => {
           onChange={handleMessageChange}
         />
       </form>
-      <Button variant="contained" className={classes.contactUsBtn} onClick={sendMessage}>
-        <h3>Contact Us!</h3>
+      <Button variant="contained" className={classes.contactUsBtn} onClick={sendMessage} component="h2">
+        Send
       </Button>
     </Element>
   )

@@ -10,14 +10,7 @@ export const ContactUsButton = (props) => {
       color: '#ffffff',
       backgroundColor: '#990000',
       marginTop: !isDesktop && '-30px',
-      // fontWeight: 'bold',
-      // position: 'absolute',
-      // top: isDesktop ? '60%' : '90%',
-      // left: '50%',
-      // transform: 'translate(-50%, -50%)',
-      // zIndex: '2',
-      // textAlign: 'center',
-      // display: 'inline-block',
+      textTransform: 'none',
       "&:hover": {
         backgroundColor: "#990000",
         opacity: '0.8'
@@ -35,7 +28,7 @@ export const ContactUsButton = (props) => {
   const classes = useStyles();
   return (
     <Button variant="contained" className={classes.contactUsBtn} onClick={() => scrollToContactUs()}>
-      <h3>Contact Us!</h3>
+      <h2>Contact us</h2>
     </Button>
   )
 };

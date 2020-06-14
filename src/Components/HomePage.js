@@ -31,14 +31,7 @@ export const HomePage = () => {
     },
     missionStmt1: {
       color: '#990000',
-      //color: 'white',
       fontWeight: !isDesktop && 'bold',
-      // position: 'absolute',
-      // top: !isDesktop && '20%',
-      // left: '50%',
-      // transform: 'translate(-50%, -50%)',
-      // zIndex: '2',
-      // display: 'inline-block',
     },
     grid: {
       display: 'inline-block',
@@ -53,24 +46,13 @@ export const HomePage = () => {
       fontWeight: '700',
       marginBottom: '50px',
       marginTop: '-150px'
-      // fontWeight: 'bold',
-      // position: 'absolute',
-      // top: isDesktop ? '40%' : '60%',
-      // left: '50%',
-      // transform: 'translate(-50%, -50%)',
-      // zIndex: '2',
-      // width: '80%',
-      // padding: '20px',
-      // textAlign: 'center',
-      // display: 'inline-block',
-      //backgroundColor: 'rgba(0,0,0, 0.8)'
     },
     missionContainer: {
       position: 'absolute',
       zIndex: '1000',
       height: !isDesktop ? '150px' : '100px',
       textAlign: 'center',
-      top: isDesktop ? '50%' : '30%',
+      top: isDesktop ? '350px' : '30%',
       width: isDesktop ? '90%' : '80%',
       backgroundColor: !isDesktop && '#ffffff',
       opacity: !isDesktop && '0.8',
@@ -84,7 +66,7 @@ export const HomePage = () => {
       margin: isDesktop ? '30px auto' : '30px 16px 0px 16px',
       textAlign: 'center',
       boxShadow: 'none',
-      border: '1px solid #e5e5e5',
+      border: '2px solid #ffbf00',
     },
   }));
 
@@ -108,15 +90,16 @@ export const HomePage = () => {
           </Grid>
         </div>
       </Banner>
-      <Vision isDesktop={isDesktop} />
       <Plan isDesktop={isDesktop} />
+      <Vision isDesktop={isDesktop} />
       <AboutUs isDesktop={isDesktop} />
       <Card className={classes.cardRoot}>
         <CardContent>
           <Typography variant="h5" component="h2">
-            <p>Want to get access to our curated curriculum?</p>
-            <p>Want to show-case your career journey on our platform?</p>
-            <p>Want to help us create curriculum?</p>
+            <p>Want more information about our training modules?</p>
+            <p>Want to showcase your career journey on our platform?</p>
+            <p>Want to help us achieve our mission?</p>
+            <p>Just feel like saying Hi?</p>
           </Typography>
           <ContactUsForm isDesktop={isDesktop}/>
         </CardContent>

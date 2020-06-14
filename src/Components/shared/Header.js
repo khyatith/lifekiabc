@@ -61,7 +61,12 @@ export const Header = () => {
 
   const handleOurContentClose = () => {
     setAnchorEl(null);
-    return <Redirect to="/our-content" source={'reg'} />
+    scrollToOurContent();
+  };
+
+  const handleContactUsClose = () => {
+    setAnchorEl(null);
+    scrollToContactUs();
   };
 
   const renderMobileMenu = () => {
@@ -81,14 +86,23 @@ export const Header = () => {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleOurContentClose}>our content</MenuItem>
-        <MenuItem onClick={handleAboutUsClose}>about us</MenuItem>
+        <MenuItem onClick={handleContactUsClose}>Contact us</MenuItem>
+        <MenuItem onClick={handleAboutUsClose}>About us</MenuItem>
+        <MenuItem onClick={handleOurContentClose}>What we do</MenuItem>
       </Menu>
     );
   }
   
   const scrollToAboutUs = () => {
     scroller.scrollTo('/about-us', {
+      duration: 2000,
+      delay: 0,
+      smooth: 'easeInOutQuart'
+    })
+  };
+
+  const scrollToOurContent = () => {
+    scroller.scrollTo('/what-we-do', {
       duration: 2000,
       delay: 0,
       smooth: 'easeInOutQuart'
@@ -111,16 +125,16 @@ export const Header = () => {
         </Grid>
         <Grid item xs={3}>
           <Typography variant="h6">
-            <Link className={classes.desktopMenu} onClick={() => scrollToContactUs()}>contact us</Link>
+            <Link className={classes.desktopMenu} onClick={() => scrollToContactUs()}>Contact us</Link>
           </Typography>
         </Grid>
         <Grid item xs={3}>
           <Typography variant="h6">
-            <Link className={classes.desktopMenu} onClick={() => scrollToAboutUs()}>about us</Link>
+            <Link className={classes.desktopMenu} onClick={() => scrollToAboutUs()}>About us</Link>
           </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="h6" className={classes.desktopMenu}>our content</Typography>
+          <Typography variant="h6" className={classes.desktopMenu} onClick={() => scrollToOurContent()}>What we do</Typography>
         </Grid>
       </div>
     )

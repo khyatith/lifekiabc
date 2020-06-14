@@ -6,7 +6,7 @@ import { ThemeProvider } from '@material-ui/styles';
 const theme = createMuiTheme({
   typography: {
     fontFamily: [
-      'Gelasio',
+      'Roboto',
       'serif'
     ].join(','),
   }

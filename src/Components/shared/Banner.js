@@ -11,10 +11,12 @@ export const Banner = (props) => {
       flexGrow: 1,
       paddingRight: '20px',
       paddingLeft: '20px',
+      marginBottom: '100px'
     },
     paper: {
       textAlign: 'center',
       color: '#000000',
+      border: '1px solid #ffbf00',
       height: isDesktop ? '550px' : '450px',
     },
   }));

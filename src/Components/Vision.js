@@ -12,21 +12,18 @@ const useStyles = makeStyles(() => ({
   visionContent: {
     margin: '16px'
   },
-  title: {
-    marginTop: '100px'
-  }
 }));
 
 export const Vision = (props) => {
   const { isDesktop } = props;
   const classes = useStyles();
   return (
-    <Grid item xs={12} md={6} className={classes.root}>
+    <Grid item xs={12} md={10} className={classes.root}>
       <Typography variant={isDesktop ? "h3" : "h4"} className={classes.title}>
-        <p>Our Vision</p>
+        <p style={{ color: '#3299CC' }}>Our Vision</p>
       </Typography>
-      <Typography variant={"h5"} className={classes.visionContent}>
-        <p>Our vision is to be able to provide the students with the knowledge and tools and skill that they’ll be able to understand in languages that they can understand, providing educational equity to marginalized students.</p>
+      <Typography variant={isDesktop ? "h5" : "h6"} className={classes.visionContent}>
+        <p>To provide students with the knowledge and expertise around non-traditional concepts that will enrich their overall growth and create a foundation for their success. We aim to impart these life skills in regional languages to promote educational equity. Ultimately, we will consider our efforts a success when these ideas are incorporated as an integral part of the education system.</p>
       </Typography>
     </Grid>
   )
