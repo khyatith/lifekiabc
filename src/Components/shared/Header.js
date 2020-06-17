@@ -11,6 +11,8 @@ import Grid from '@material-ui/core/Grid';
 import { Redirect } from "react-router-dom";
 //import Link from '@material-ui/core/Link';
 import { scroller, Link } from 'react-scroll';
+import Logo1 from '../../assets/logo1.png';
+import Logo2 from '../../assets/logo2.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
 export const Header = () => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
-  const isDesktop = window.innerWidth > 500;
+  const isDesktop = window.innerWidth > 800;
   const open = Boolean(anchorEl);
 
   const handleMenu = (event) => {
@@ -146,7 +148,10 @@ export const Header = () => {
         <Toolbar>
           <Grid item xs={8}>
             <Typography variant="h6" className={classes.title}>
-            <Link className={classes.desktopMenu} href='/'>Life Ki ABC</Link>
+            <Link className={classes.desktopMenu} href='/'>
+              <img src={Logo1} width={ isDesktop ? "70px" : "50px"} height={ isDesktop ? "70px" : "50px" }/>
+              <img src={Logo2} width={ isDesktop ? "70px" : "50px"} height={ isDesktop ? "70px" : "50px" }/>
+            </Link>
             </Typography>
           </Grid>
           <Grid item xs={4}>

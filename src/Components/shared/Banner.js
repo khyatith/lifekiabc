@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import { Header } from './Header';
 
 export const Banner = (props) => {
-  const isDesktop = window.innerWidth > 500;
+  const isDesktop = window.innerWidth > 800;
   const useStyles = makeStyles(() => ({
     root: {
       flexGrow: 1,

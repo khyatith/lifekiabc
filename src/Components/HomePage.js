@@ -15,7 +15,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 export const HomePage = () => {
 
-  const isDesktop = window.innerWidth > 500;
+  const isDesktop = window.innerWidth > 800;
 
   const useStyles = makeStyles(() => ({
     root: {
@@ -62,7 +62,7 @@ export const HomePage = () => {
     },
     cardRoot: {
       minWidth: '275px',
-      maxWidth: '600px',
+      maxWidth: isDesktop && '600px',
       margin: isDesktop ? '30px auto' : '30px 16px 0px 16px',
       textAlign: 'center',
       boxShadow: 'none',
@@ -95,7 +95,7 @@ export const HomePage = () => {
       <AboutUs isDesktop={isDesktop} />
       <Card className={classes.cardRoot}>
         <CardContent>
-          <Typography variant="h5" component="h2">
+          <Typography variant={ isDesktop ? "h5" : "h6" } component="h2">
             <p>Want more information about our training modules?</p>
             <p>Want to showcase your career journey on our platform?</p>
             <p>Want to help us achieve our mission?</p>

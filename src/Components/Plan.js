@@ -19,7 +19,7 @@ export const Plan = (props) => {
       textAlign: 'center',
     },
     card: {
-      width: isDesktop ? '500px' : '300px',
+      width: isDesktop && '500px',
       position: 'relative',
       boxShadow: 'none',
       marginBottom: !isDesktop && '16px',
@@ -49,8 +49,8 @@ export const Plan = (props) => {
     },
     containerGrid: {
       justifyContent: 'center',
-      paddingRight: '100px',
-      margin: isDesktop ? '0px 100px' : '16px'
+      paddingRight: isDesktop ? '100px' : 0,
+      margin: isDesktop ? '0px 100px' : 0
     },
   }));
 
