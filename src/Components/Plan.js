@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import blur2 from '../assets/blur2.jpg';
@@ -8,9 +8,11 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { Element } from 'react-scroll';
+import VisibilitySensor from 'react-visibility-sensor'; 
 
 export const Plan = (props) => {
   const { isDesktop } = props;
+  const [isVisible, setVisibility] = useState(false);
 
   const useStyles = makeStyles(() => ({
     root: {
@@ -27,7 +29,14 @@ export const Plan = (props) => {
     },
     title: {
       color: '#ffffff',
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+    },
+    fadeInUp: {
+      animation: `$fadeInUp 1s both`,
+      opacity: 0,
+    },
+    whatwedo: {
+      color: '#3299CC'
     },
     media1: {
       filter: 'blur(2px)',
@@ -45,54 +54,69 @@ export const Plan = (props) => {
       width: '80%',
       padding: '20px',
       textAlign: 'center',
-      display: 'inline-block'
+      display: 'inline-block',
     },
     containerGrid: {
       justifyContent: 'center',
       paddingRight: isDesktop ? '100px' : 0,
       margin: isDesktop ? '0px 100px' : 0
     },
+    "@keyframes fadeInUp": {
+      "from": {
+          transform: "translate3d(0,40px,0)",
+      }, 
+      "to": {
+          transform: "translate3d(0,0,0)",
+          opacity: 1
+      }
+    },
   }));
+
+  const changeVisibilityHandler = (e) => {
+    setVisibility(e);
+  };
 
   const classes = useStyles();
 
   return (
     <Element id="/what-we-do" name="/what-we-do">
-      <div className={classes.root}>
-        <Typography variant={isDesktop ? "h3" : "h4"}>
-          <p style={{ color: '#3299CC' }}>What we do</p>
-        </Typography>
-        <Grid container className={classes.containerGrid}>
-          <Grid item xs={12} md={6}>
-            <Card className={classes.card}>
-              <CardMedia component="img" image={blur2} className={classes.media1} height="100%" />
-              <CardContent className={classes.cardText}>
-                <Typography variant={isDesktop ? "h4" : "h5"} className={classes.title}>
-                  Life skills
-                </Typography>
-                <br/>
-                <Typography variant={"h6"} className={classes.title}>
-                  We educate students using engaging curriculum that has been specifically designed for igniting young minds
-                </Typography>
-              </CardContent>
-            </Card>
+      <VisibilitySensor onChange={changeVisibilityHandler} offset={{top:10, bottom: 10}}>
+        <div className={classes.root}>
+          <Typography variant={isDesktop ? "h3" : "h4"} className={`${isVisible ? classes.fadeInUp : ''} ${classes.whatwedo}`}>
+            <p>What we do</p>
+          </Typography>
+          <Grid container className={classes.containerGrid}>
+            <Grid item xs={12} md={6}>
+              <Card className={classes.card}>
+                <CardMedia component="img" image={blur2} className={classes.media1} height="100%" />
+                  <CardContent className={classes.cardText}>
+                    <Typography variant={isDesktop ? "h4" : "h5"} className={`${isVisible ? classes.fadeInUp : ''} ${classes.title}`}>
+                      Life skills
+                    </Typography>
+                    <br/>
+                    <Typography variant={"h6"} className={`${isVisible ? classes.fadeInUp : ''} ${classes.title}`}>
+                      We educate students using engaging curriculum that has been specifically designed for igniting young minds
+                    </Typography>
+                  </CardContent>
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Card className={classes.card}>
+                <CardMedia component="img" image={blur3} className={classes.media1} height="100%" />
+                <CardContent className={classes.cardText}>
+                  <Typography variant={isDesktop ? "h4" : "h5"} className={`${isVisible ? classes.fadeInUp : ''} ${classes.title}`}>
+                    Career Stories
+                  </Typography>
+                  <br/>
+                  <Typography variant={"h6"} className={`${isVisible ? classes.fadeInUp : ''} ${classes.title}`}>
+                  Provide insights into the making of a professional and what their daily life entails to help students make an informed career choice
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <Card className={classes.card}>
-              <CardMedia component="img" image={blur3} className={classes.media1} height="100%" />
-              <CardContent className={classes.cardText}>
-                <Typography variant={isDesktop ? "h4" : "h5"} className={classes.title}>
-                  Career Stories
-                </Typography>
-                <br/>
-                <Typography variant={"h6"} className={classes.title}>
-                Provide insights into the making of a professional and what their daily life entails to help students make an informed career choice
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </div>
+        </div>
+      </VisibilitySensor>
     </Element>
   )
 }

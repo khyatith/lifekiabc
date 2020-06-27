@@ -20,9 +20,9 @@ export const ContactUsButton = (props) => {
 
   const scrollToContactUs = () => {
     scroller.scrollTo('/contact-us', {
-      duration: 2000,
-      delay: 0,
-      smooth: 'easeInOutQuart'
+      duration: 3000,
+      delay: 100,
+      smooth: 'easeInOut'
     })
   }
   const classes = useStyles();

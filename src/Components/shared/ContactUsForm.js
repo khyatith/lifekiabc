@@ -10,13 +10,14 @@ import { Element } from 'react-scroll';
 
 export const ContactUsForm = (props) => {
   const { isDesktop } = props;
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [message, setMessage] = useState(null);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const [success, setSuccess] = useState(false);
   const [failure, setFailure] = useState(false);
   const [emailValidated, setEmailValidated] = useState(true);
   const [alertOpen, setAlertOpen] = useState(false);
+
   const useStyles = makeStyles(() => ({
     contactUsBtn: {
       color: '#ffffff',
@@ -36,7 +37,20 @@ export const ContactUsForm = (props) => {
         width: isDesktop ? '500px' : '100%',
         marginBottom: '50px'
       }
-    }
+    },
+    "@keyframes fadeInUp": {
+      "from": {
+          transform: "translate3d(0,40px,0)",
+      }, 
+      "to": {
+          transform: "translate3d(0,0,0)",
+          opacity: 1
+      }
+    },
+    fadeInUp: {
+      animation: `$fadeInUp 1s both`,
+      opacity: 0,
+    },
   }));
 
   const CustomAlert = (alertProps) => {
@@ -108,25 +122,25 @@ export const ContactUsForm = (props) => {
   const classes = useStyles();
 
   return (
-    <Element id='/contact-us' name='/contact-us'>
-      {failure && alertOpen && <CustomAlert severity="error" message="There was a problem sending your message.Please try again later or contact us at lifekiabc.com" />}
-      {success && alertOpen && <CustomAlert severity="success" message="Thank you for contacting us.We will get back to you soon" />}
-      <form className={classes.root} noValidate autoComplete="off">
-        <TextField error={!emailValidated} required id="name" label="Name" value={name} onChange={handleNameChange}/>
-        <TextField error={!emailValidated} required id="email" label="Email" value={email} onChange={handleEmailChange}/>
-        <TextField
-          id="query"
-          label="Message"
-          multiline
-          rows="4"
-          variant="outlined"
-          value={message}
-          onChange={handleMessageChange}
-        />
-      </form>
-      <Button variant="contained" className={classes.contactUsBtn} onClick={sendMessage} component="h2">
-        Send
-      </Button>
-    </Element>
+      <Element id='/contact-us' name='/contact-us'>
+        {failure && alertOpen && <CustomAlert severity="error" message="There was a problem sending your message.Please try again later or contact us at lifekiabc.com" />}
+        {success && alertOpen && <CustomAlert severity="success" message="Thank you for contacting us.We will get back to you soon" />}
+          <form className={classes.root} noValidate autoComplete="off">
+            <TextField error={!emailValidated} required id="name" label="Name" value={name} onChange={handleNameChange}/>
+            <TextField error={!emailValidated} required id="email" label="Email" value={email} onChange={handleEmailChange}/>
+            <TextField
+              id="query"
+              label="Message"
+              multiline
+              rows="4"
+              variant="outlined"
+              value={message}
+              onChange={handleMessageChange}
+            />
+          </form>
+        <Button variant="contained" className={classes.contactUsBtn} onClick={sendMessage} component="h2">
+          Send
+        </Button>
+      </Element>
   )
 }
