@@ -7,22 +7,22 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { ContactUsButton } from './shared/ContactUsButton';
-import { Vision } from './Vision';
-import { AboutUs } from './AboutUs';
 import { Plan } from './Plan';
-import HomePageImg from '../assets/homepage1.jpg';
+import { InfoPanel } from './InfoPanel';
+import school from '../assets/school.jpg';
 import CardMedia from '@material-ui/core/CardMedia';
 import VisibilitySensor from 'react-visibility-sensor';
 
 export const HomePage = () => {
 
-  const isDesktop = window.innerWidth > 800;
+  const isDesktop = window.innerWidth > 1200;
   const [isVisible, setVisibility] = useState(false);
 
   const useStyles = makeStyles(() => ({
     root: {
       flexGrow: 1,
-      padding: !isDesktop && '10px'
+      padding: !isDesktop && '10px',
+      position: 'relative'
     },
     homepageImg: {
       height: isDesktop ? '450px' : '380px',
@@ -32,12 +32,15 @@ export const HomePage = () => {
       //filter: 'blur(2px)'
     },
     missionStmt1: {
-      color: '#990000',
-      fontWeight: !isDesktop && 'bold',
+      color: '#000000',
+      fontWeight: 'bold',
+      fontSize: isDesktop ? '3em' : '2em',
+      lineHeight: '1.5em'
     },
     grid: {
       display: 'inline-block',
-      width: '100%'
+      width: '100%',
+      position: 'relative'
     },
     missionStmt3: {
       color: '#000099',
@@ -70,6 +73,22 @@ export const HomePage = () => {
       boxShadow: 'none',
       border: '2px solid #ffbf00',
     },
+    catchPhraseDiv: {
+      width: '500px',
+      backgroundColor: '#fff5eb',
+      flex: isDesktop && '0 0 65%',
+      height: !isDesktop && 'auto'
+    },
+    catchPhrase: {
+      margin: isDesktop ? '80px' : '50px',
+    },
+    logoDiv: {
+      width: '100%',
+      //marginLeft: '400px',
+      height: '100%',
+      //flex: '1',
+      position: 'static'
+    },
     "@keyframes fadeInUp": {
       "from": {
           transform: "translate3d(0,40px,0)",
@@ -93,25 +112,24 @@ export const HomePage = () => {
     <>
       <Banner>
         <VisibilitySensor onChange={changeVisibilityHandler}>
-          <div className={classes.root}>
-            <Grid item xs={12} className={classes.grid}>
-              <div className={classes.missionContainer}>
+          <div style={{display: 'flex', flexWrap: 'wrap'}}>
+            <Grid item xs={12} md={4} className={classes.catchPhraseDiv}>
+              <div className={classes.catchPhrase}>
                 <Typography variant={ isDesktop ? "h4" : "subtitle1" } className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}`}>
-                Our mission is to promote the holistic development of students by equipping them with the skills and tools they need - empowering them to achieve their full potential in life.
+                  Virtual <br/>Life Skills Lessons!
                 </Typography>
+                <h3>Creating leaders of tomorrow</h3>
               </div>
-              <CardMedia component="img" image={HomePageImg} className={`${classes.homepageImg} ${isVisible ? classes.fadeInUp : ''}`} height="100%"/>
-              <ContactUsButton isDesktop={isDesktop} />
-              <br />
-              <br />
-              { isDesktop && <br />}
+              <ContactUsButton />
+            </Grid>
+            <Grid item xs={12} md={8} className={`${classes.logoDiv} ${isVisible ? classes.fadeInUp : ''}`}>
+              <CardMedia component="img" image={school} className={classes.media1} height="100%" />
             </Grid>
           </div>
         </VisibilitySensor>
       </Banner>
       <Plan isDesktop={isDesktop} />
-      <Vision isDesktop={isDesktop} />
-      <AboutUs isDesktop={isDesktop} />
+      <InfoPanel isDesktop={isDesktop} />
         <Card className={classes.cardRoot}>
           <CardContent className={isVisible ? classes.fadeInUp : ''}>
             <VisibilitySensor onChange={changeVisibilityHandler}>

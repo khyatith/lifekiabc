@@ -67,7 +67,7 @@ export const Header = () => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [isVisible, setVisibility] = useState(false);
-  const isDesktop = window.innerWidth > 800;
+  const isDesktop = window.innerWidth > 1200;
   const open = Boolean(anchorEl);
 
   const handleMenu = (event) => {

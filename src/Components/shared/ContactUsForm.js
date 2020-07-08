@@ -25,6 +25,7 @@ export const ContactUsForm = (props) => {
       margin: '0 auto',
       textTransform: 'none',
       fontSize: '20px',
+      padding: '10px 20px 10px 20px',
       "&:hover": {
         backgroundColor: "#990000",
         opacity: '0.8'

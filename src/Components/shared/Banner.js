@@ -5,27 +5,27 @@ import Grid from '@material-ui/core/Grid';
 import { Header } from './Header';
 
 export const Banner = (props) => {
-  const isDesktop = window.innerWidth > 800;
+  const isDesktop = window.innerWidth > 1200;
   const useStyles = makeStyles(() => ({
     root: {
       flexGrow: 1,
       paddingRight: '20px',
       paddingLeft: '20px',
-      marginBottom: '100px'
+      marginBottom: '70px'
     },
     paper: {
       textAlign: 'center',
       color: '#000000',
-      border: '1px solid #ffbf00',
-      height: isDesktop ? '550px' : '450px',
+      boxShadow: 'none',
+      position:'relative'
     },
   }));
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <Grid item xs={12}>
+        <Header />
         <Paper className={classes.paper}>
-          <Header />
           {props.children}
         </Paper>
       </Grid>
