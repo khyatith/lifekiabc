@@ -2,76 +2,25 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Banner } from './shared/Banner';
 import Grid from '@material-ui/core/Grid';
-import { ContactUsForm } from './shared/ContactUsForm';
-import Typography from '@material-ui/core/Typography';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 import { ContactUsButton } from './shared/ContactUsButton';
 import { Plan } from './Plan';
 import { InfoPanel } from './InfoPanel';
+import { ContactUsCard } from './shared/ContactUsCard';
 import school from '../assets/school.jpg';
 import CardMedia from '@material-ui/core/CardMedia';
 import VisibilitySensor from 'react-visibility-sensor';
+import Typography from '@material-ui/core/Typography';
 
-export const HomePage = () => {
-
-  const isDesktop = window.innerWidth > 1200;
+export const HomePage = (props) => {
+  const { isDesktop } = props;
   const [isVisible, setVisibility] = useState(false);
 
   const useStyles = makeStyles(() => ({
-    root: {
-      flexGrow: 1,
-      padding: !isDesktop && '10px',
-      position: 'relative'
-    },
-    homepageImg: {
-      height: isDesktop ? '450px' : '380px',
-      display: 'inline-block',
-      width: '100%',
-      objectPosition: '50% 20%',
-      //filter: 'blur(2px)'
-    },
     missionStmt1: {
       color: '#000000',
       fontWeight: 'bold',
       fontSize: isDesktop ? '3em' : '2em',
       lineHeight: '1.5em'
-    },
-    grid: {
-      display: 'inline-block',
-      width: '100%',
-      position: 'relative'
-    },
-    missionStmt3: {
-      color: '#000099',
-      fontWeight: '700',
-    },
-    missionStmt2: {
-      color: '#585b60',
-      fontWeight: '700',
-      marginBottom: '50px',
-      marginTop: '-150px'
-    },
-    missionContainer: {
-      position: 'absolute',
-      zIndex: '1000',
-      height: !isDesktop ? '150px' : '100px',
-      textAlign: 'center',
-      top: isDesktop ? '350px' : '30%',
-      width: isDesktop ? '90%' : '80%',
-      backgroundColor: !isDesktop && '#ffffff',
-      opacity: !isDesktop && '0.8',
-      margin: 'auto',
-      left: '0',
-      right: '0'
-    },
-    cardRoot: {
-      minWidth: '275px',
-      maxWidth: isDesktop && '600px',
-      margin: isDesktop ? '30px auto' : '30px 16px 0px 16px',
-      textAlign: 'center',
-      boxShadow: 'none',
-      border: '2px solid #ffbf00',
     },
     catchPhraseDiv: {
       width: '500px',
@@ -84,9 +33,7 @@ export const HomePage = () => {
     },
     logoDiv: {
       width: '100%',
-      //marginLeft: '400px',
       height: '100%',
-      //flex: '1',
       position: 'static'
     },
     "@keyframes fadeInUp": {
@@ -110,7 +57,7 @@ export const HomePage = () => {
   };
   return (
     <>
-      <Banner>
+      <Banner isDesktop={isDesktop}>
         <VisibilitySensor onChange={changeVisibilityHandler}>
           <div style={{display: 'flex', flexWrap: 'wrap'}}>
             <Grid item xs={12} md={4} className={classes.catchPhraseDiv}>
@@ -130,19 +77,7 @@ export const HomePage = () => {
       </Banner>
       <Plan isDesktop={isDesktop} />
       <InfoPanel isDesktop={isDesktop} />
-        <Card className={classes.cardRoot}>
-          <CardContent className={isVisible ? classes.fadeInUp : ''}>
-            <VisibilitySensor onChange={changeVisibilityHandler}>
-              <Typography variant={ isDesktop ? "h5" : "h6" } component="h2">
-                <p>Want more information about our training modules?</p>
-                <p>Want to showcase your career journey on our platform?</p>
-                <p>Want to help us achieve our mission?</p>
-                <p>Just feel like saying Hi?</p>
-              </Typography>
-            </VisibilitySensor>
-            <ContactUsForm isDesktop={isDesktop}/>
-          </CardContent>
-        </Card>
+      <ContactUsCard isDesktop={isDesktop} />
     </>
   )
 }

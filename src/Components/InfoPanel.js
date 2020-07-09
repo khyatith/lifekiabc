@@ -8,10 +8,10 @@ import { AboutUs } from './AboutUs';
 export const InfoPanel = (props) => {
   const { isDesktop } = props;
   const useStyles = makeStyles(() => ({
-    root: {
+    container: {
       display: 'flex',
       flexWrap: !isDesktop && 'wrap',
-      margin: isDesktop ? '150px 20px' : '50px 20px',
+      margin: isDesktop ? '50px 20px' : '50px 20px',
       backgroundColor: '#dce0e5',
       height: isDesktop ? 'auto' : '300px'
     },
@@ -55,7 +55,7 @@ export const InfoPanel = (props) => {
   return (
     <VisibilitySensor onChange={changeVisibilityHandler} offset={{top:10, bottom: 10}}>
       <>
-        <div className={classes.root}>
+        <div className={classes.container}>
           <div className={classes.missionDiv}>
             <Typography variant={isDesktop ? "h3" : "h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
               <span className={classes.blueColor}>Our Mission</span>

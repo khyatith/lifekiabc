@@ -9,13 +9,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Grid from '@material-ui/core/Grid';
 import { scroller, Link } from 'react-scroll';
+import * as Router from 'react-router-dom';
 import Logo1 from '../../assets/logo1.png';
 import VisibilitySensor from 'react-visibility-sensor'; 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   menuButton: {
     color: '#990000',
     float: 'right'
@@ -48,6 +46,14 @@ const useStyles = makeStyles((theme) => ({
   visionContent: {
     margin: '16px'
   },
+  listItemClass: {
+    display: 'block !important',
+    padding: '20px',
+    '&.MuiListItem-button': {
+      display: 'block !important',
+      padding: '10px'
+    },
+  },
   "@keyframes fadeInUp": {
     "from": {
         transform: "translate3d(0,40px,0)",
@@ -63,11 +69,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const Header = () => {
+export const Header = (props) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [isVisible, setVisibility] = useState(false);
-  const isDesktop = window.innerWidth > 1200;
+  const { isDesktop } = props;
   const open = Boolean(anchorEl);
 
   const handleMenu = (event) => {
@@ -112,9 +118,9 @@ export const Header = () => {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleContactUsClose}>Contact us</MenuItem>
-        <MenuItem onClick={handleAboutUsClose}>About us</MenuItem>
-        <MenuItem onClick={handleOurContentClose}>What we do</MenuItem>
+        <MenuItem onClick={handleContactUsClose} classes={{ root: classes.listItemClass }}>Contact us</MenuItem>
+        <MenuItem onClick={handleAboutUsClose} classes={{ root: classes.listItemClass }}>About us</MenuItem>
+        <MenuItem onClick={handleOurContentClose} classes={{ root: classes.listItemClass }}>What we do</MenuItem>
       </Menu>
     );
   }
@@ -167,31 +173,29 @@ export const Header = () => {
   }
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static" className={classes.appBar}>
-        <Toolbar>
-          <Grid item xs={6}>
-            <Typography variant="h6" className={classes.title}>
-            <VisibilitySensor onChange={changeVisibilityHandler} offset={{top:10, bottom: 10}}>
-              <Link className={classes.desktopMenu} href='/'>
-                <img src={Logo1} width={ isDesktop ? "70px" : "50px"} height={ isDesktop ? "70px" : "50px" } className={isVisible ? classes.fadeInUp : ''}/>
-              </Link>
-            </VisibilitySensor>
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            { !isDesktop &&
-              <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={handleMenu}>
-                <MenuIcon />
-              </IconButton>
-            }
-            {
-              isDesktop && renderDesktopMenu()
-            }
-          </Grid>
-          {renderMobileMenu()}
-        </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar position="static" className={classes.appBar}>
+      <Toolbar>
+        <Grid item xs={6}>
+          <Typography variant="h6" className={classes.title}>
+          <VisibilitySensor onChange={changeVisibilityHandler} offset={{top:10, bottom: 10}}>
+            <Router.Link className={classes.desktopMenu} to={{ pathname: '/', state: { isDesktop }}}>
+              <img src={Logo1} width={ isDesktop ? "70px" : "50px"} height={ isDesktop ? "70px" : "50px" } className={isVisible ? classes.fadeInUp : ''}/>
+            </Router.Link>
+          </VisibilitySensor>
+          </Typography>
+        </Grid>
+        <Grid item xs={6}>
+          { !isDesktop &&
+            <IconButton edge="start" className={classes.menuButton} color="#990000" aria-label="menu" onClick={handleMenu}>
+              <MenuIcon />
+            </IconButton>
+          }
+          {
+            isDesktop && renderDesktopMenu()
+          }
+        </Grid>
+        {renderMobileMenu()}
+      </Toolbar>
+    </AppBar>
   );
 }

@@ -31,7 +31,7 @@ export const ContactUsForm = (props) => {
         opacity: '0.8'
       }
     },
-    root: {
+    contactUsFormContainer: {
       marginBottom: '20px',
       marginTop: '20px',
       '& .MuiTextField-root': {
@@ -126,7 +126,7 @@ export const ContactUsForm = (props) => {
       <Element id='/contact-us' name='/contact-us'>
         {failure && alertOpen && <CustomAlert severity="error" message="There was a problem sending your message.Please try again later or contact us at lifekiabc.com" />}
         {success && alertOpen && <CustomAlert severity="success" message="Thank you for contacting us.We will get back to you soon" />}
-          <form className={classes.root} noValidate autoComplete="off">
+          <form className={classes.contactUsFormContainer} noValidate autoComplete="off">
             <TextField error={!emailValidated} required id="name" label="Name" value={name} onChange={handleNameChange}/>
             <TextField error={!emailValidated} required id="email" label="Email" value={email} onChange={handleEmailChange}/>
             <TextField

@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import VisibilitySensor from 'react-visibility-sensor';
-import Carousel from 'react-material-ui-carousel';
-import Paper from '@material-ui/core/Paper';
 import { Element } from 'react-scroll';
+import { Carousal } from './shared/Carousal';
 
 var items = [
   {
@@ -25,12 +24,6 @@ const useStyles = makeStyles(() => ({
   aboutUsDiv: {
     flex: 1,
     padding: '100px'
-  },
-  carousalDiv: {
-    backgroundColor: '#dce0e5',
-    fontSize: '28px',
-    lineHeight: '1.5em',
-    boxShadow: 'none'
   },
   "@keyframes fadeInUp": {
     "from": {
@@ -56,31 +49,13 @@ export const AboutUsCarousal = (props) => {
     setVisibility(e);
   };
 
-  const Item = (props) => {
-    return (
-      <Paper className={classes.carousalDiv}>
-        <p>{props.item.description}</p>
-      </Paper>
-    )
-  }
-  
-  const generateCarousal = () => {
-    return (
-      <Carousel animation={"slide"} timeout={1000}>
-        {
-          items.map( item => <Item item={item} /> )
-        }
-      </Carousel>
-    )
-  }
-
   return (
     <Element id='/about-us' name='/about-us'>
       <VisibilitySensor onChange={changeVisibilityHandler} offset={{top:10, bottom: 10}}>
           <div className={classes.aboutUsDiv}>
             <Typography variant={isDesktop ? "h3" : "h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
               <span className={classes.blueColor}>About Us</span>
-              {generateCarousal()}
+              <Carousal items={items} backgroundColor="#dce0e5" />
             </Typography>
           </div>
       </VisibilitySensor>

@@ -8,27 +8,18 @@ import VisibilitySensor from 'react-visibility-sensor';
 import Paper from '@material-ui/core/Paper';
 import clock from '../assets/clock.png';
 import communication from '../assets/communication.png';
+import { useHistory } from "react-router-dom";
 
 export const Plan = (props) => {
   const { isDesktop } = props;
   const [isVisible, setVisibility] = useState(false);
+  const history = useHistory();
 
   const useStyles = makeStyles(() => ({
-    root: {
+    planContainer: {
       display: 'flex',
       margin: '20px',
       flexWrap: 'wrap',
-    },
-    card: {
-      width: isDesktop && '500px',
-      position: 'relative',
-      boxShadow: 'none',
-      marginBottom: !isDesktop && '16px',
-      padding: !isDesktop && '20px'
-    },
-    title: {
-      color: '#ffffff',
-      fontWeight: 'bold',
     },
     fadeInUp: {
       animation: `$fadeInUp 1s both`,
@@ -37,25 +28,6 @@ export const Plan = (props) => {
     media1: {
       display: 'inline-block',
       width: '200px'
-    },
-    cardText: {
-      backgroundColor: 'rgba(0,0,0, 0.6)', /* Black w/opacity/see-through */
-      color: 'white',
-      fontWeight: 'bold',
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      zIndex: '2',
-      width: '80%',
-      padding: '20px',
-      textAlign: 'center',
-      display: 'inline-block',
-    },
-    containerGrid: {
-      justifyContent: 'center',
-      paddingRight: isDesktop ? '100px' : 0,
-      margin: isDesktop ? '0px 100px' : 0
     },
     whatwedotextdiv: {
       flex: isDesktop && '0 0 35%',
@@ -100,12 +72,16 @@ export const Plan = (props) => {
     setVisibility(e);
   };
 
+  const goToTimeManagement = () => {
+    history.push('/time-management');
+  }
+
   const classes = useStyles();
 
   return (
     <Element id="/what-we-do" name="/what-we-do">
       <VisibilitySensor onChange={changeVisibilityHandler} offset={{top:10, bottom: 10}}>
-        <div className={classes.root}>
+        <div className={classes.planContainer}>
           <div className={classes.whatwedotextdiv}>
             <Typography variant={isDesktop ? "h3" : "h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
               <span className={classes.blueColor}>What we do</span>
@@ -114,7 +90,7 @@ export const Plan = (props) => {
           </div>
           <div className={classes.whatwedomodules}>
             <Grid container spacing={2}>
-              <Grid item xs>
+              <Grid item xs onClick={goToTimeManagement}>
                 <h2>Time Management</h2>
                 <Paper className={classes.timeManagement}>
                   <CardMedia component="img" image={clock} height="100%" />

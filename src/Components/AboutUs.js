@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Element } from 'react-scroll';
@@ -30,7 +30,7 @@ export const AboutUs = (props) => {
       margin: '20px'
     },
     aboutUsText: {
-      fontSize: '22px',
+      fontSize: '20px',
       lineHeight: '1.5em'
     }
   }));
