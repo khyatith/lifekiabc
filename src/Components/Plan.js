@@ -81,7 +81,7 @@ export const Plan = (props) => {
     <Element id="/what-we-do" name="/what-we-do">
         <div className={classes.planContainer}>
           <div className={classes.whatwedotextdiv}>
-            <VisibilitySensor onChange={changeVisibilityHandler}>
+            <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
               <Typography variant={"h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
                 <span className={classes.blueColor}>What we do</span>
                 <p className={classes.whatwedotext}>We educate students using engaging curriculum that has been specifically designed for igniting young minds </p>

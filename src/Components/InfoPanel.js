@@ -56,7 +56,7 @@ export const InfoPanel = (props) => {
   return (
       <div className={classes.container}>
         <div className={classes.missionDiv}>
-        <VisibilitySensor onChange={changeVisibilityHandler}>
+        <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
           <Typography variant={"h4"} className={isVisible ? classes.fadeInUp : ''}>
             <span className={classes.blueColor}>Our Mission</span>
             <p className={classes.missiontext}>To promote the holistic development of students by equipping them with the skills and tools they need for success - empowering them to achieve their full potential in life.</p>

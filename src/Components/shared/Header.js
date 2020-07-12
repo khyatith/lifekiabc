@@ -177,7 +177,7 @@ export const Header = (props) => {
       <Toolbar>
         <Grid item xs={6}>
           <Typography variant="h6" className={classes.title}>
-          <VisibilitySensor onChange={changeVisibilityHandler} offset={{top:10, bottom: 10}}>
+          <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
             <Router.Link className={classes.desktopMenu} to={{ pathname: '/', state: { isDesktop }}}>
               <img alt="logo" src={Logo1} width={ isDesktop ? "70px" : "50px"} height={ isDesktop ? "70px" : "50px" } className={isVisible ? classes.fadeInUp : ''}/>
             </Router.Link>

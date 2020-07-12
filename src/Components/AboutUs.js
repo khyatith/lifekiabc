@@ -44,7 +44,7 @@ export const AboutUs = (props) => {
   const classes = useStyles();
   return (
     <Element id='/about-us' name='/about-us'>
-      <VisibilitySensor onChange={changeVisibilityHandler}>
+      <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
         <div className={classes.aboutUsDiv}>
           <Typography variant={"h4"} className={isVisible && isDesktop ? classes.fadeInUp : ''}>
             <span className={classes.blueColor}>About Us</span>

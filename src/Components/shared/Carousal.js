@@ -28,7 +28,7 @@ export const Carousal = (props) => {
   const classes = useStyles();
 
   return(
-    <Carousel animation={"slide"} timeout={1500}>
+    <Carousel animation={"slide"} timeout={2500} interval={10000}>
       { items.map( item => <Item item={item} /> ) }
     </Carousel>
   )

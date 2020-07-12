@@ -54,7 +54,7 @@ export const AboutUsCarousal = (props) => {
 
   return (
     <Element id='/about-us' name='/about-us'>
-      <VisibilitySensor onChange={changeVisibilityHandler} offset={{top:10, bottom: 10}}>
+      <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
           <div className={classes.aboutUsDiv}>
             <Typography variant={isDesktop ? "h3" : "h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
               <span className={classes.blueColor}>Our Values</span>

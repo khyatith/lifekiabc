@@ -26,17 +26,22 @@ export const HomePage = (props) => {
     catchPhraseDiv: {
       width: '500px',
       backgroundColor: '#fff5eb',
-      '-webkit-box-flex': isDesktop && '0 0 45%',
-      '-ms-flex': isDesktop && '0 0 45%',
-      flex: isDesktop && '0 0 45%',
-      height: !isDesktop && 'auto'
+      display: 'inline-block',
+      // '-webkit-box-flex': isDesktop && '0 0 45%',
+      // '-ms-flex': isDesktop && '0 0 45%',
+      // flex: isDesktop && '0 0 45%',
+      //height: !isDesktop && 'auto',
+      float: 'left',
+      height: isDesktop ? '500px' : '100%',
     },
     catchPhrase: {
-      margin: isDesktop ? '80px' : '50px',
+      margin: '50px',
     },
     logoDiv: {
       width: '100%',
-      position: 'static'
+      position: 'static',
+      display: 'inline-block',
+      //height: isDesktop ? '500px' : 'auto',
     },
     "@keyframes fadeInUp": {
       "from": {
@@ -51,6 +56,10 @@ export const HomePage = (props) => {
       animation: `$fadeInUp 1s both`,
       opacity: 0,
     },
+    container: {
+      display: 'block',
+      //flexWrap: 'wrap',
+    }
   }));
 
   const classes = useStyles();
@@ -60,8 +69,8 @@ export const HomePage = (props) => {
   return (
     <>
       <Banner isDesktop={isDesktop}>
-        <VisibilitySensor onChange={changeVisibilityHandler}>
-          <div style={{display: 'flex', flexWrap: 'wrap'}}>
+        <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
+          <div className={classes.container}>
             <Grid item xs={12} md={4} className={classes.catchPhraseDiv}>
               <div className={classes.catchPhrase}>
                 <Typography variant={"h4"} className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}`}>
@@ -71,7 +80,7 @@ export const HomePage = (props) => {
               <ContactUsButton />
             </Grid>
             <Grid item xs={12} md={8} className={`${classes.logoDiv} ${isVisible ? classes.fadeInUp : ''}`}>
-              <CardMedia component="img" image={school} className={classes.media1} height="100%" />
+              <CardMedia component="img" image={school} className={classes.media1} height={isDesktop ? '500px' : '100%'} />
             </Grid>
           </div>
         </VisibilitySensor>

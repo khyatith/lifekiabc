@@ -20,7 +20,7 @@ const theme = createMuiTheme({
 });
 
 function App() {
-  const isDesktop = window.innerWidth > 1200;
+  const isDesktop = window.innerWidth >= 1200;
   return (
     <ThemeProvider theme={theme}>
       <Router>

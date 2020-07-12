@@ -66,7 +66,7 @@ export const ModulesWrapper = (props) => {
   return (
     <Banner isDesktop={isDesktop}>
       <div className={classes.leftDiv}>
-        <VisibilitySensor onChange={changeVisibilityHandler}>
+        <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
           <Grid item xs={12} md={4} className={classes.catchPhraseDiv}>
             <div className={classes.catchPhrase}>
               <Typography variant={ isDesktop ? "h4" : "subtitle1" } className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}`}>

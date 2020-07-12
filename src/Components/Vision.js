@@ -38,7 +38,7 @@ export const Vision = (props) => {
   };
 
   return (
-    <VisibilitySensor onChange={changeVisibilityHandler} offset={{top:10, bottom: 10}}>
+    <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
       <Grid item xs={12} md={10} className={classes.root}>
         <Typography variant={isDesktop ? "h3" : "h4"} className={isVisible ? classes.fadeInUp : '' }>
           <p style={{ color: '#3299CC' }}>Our Vision</p>
