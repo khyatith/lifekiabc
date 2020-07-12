@@ -62,10 +62,9 @@ export const HomePage = (props) => {
           <div style={{display: 'flex', flexWrap: 'wrap'}}>
             <Grid item xs={12} md={4} className={classes.catchPhraseDiv}>
               <div className={classes.catchPhrase}>
-                <Typography variant={ isDesktop ? "h4" : "subtitle1" } className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}`}>
-                  Virtual <br/>Life Skills Lessons!
+                <Typography variant={"h4"} className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}`}>
+                  Empowering students with essential life skills 
                 </Typography>
-                <h3>Creating leaders of tomorrow</h3>
               </div>
               <ContactUsButton />
             </Grid>

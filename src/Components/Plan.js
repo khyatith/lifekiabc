@@ -80,13 +80,14 @@ export const Plan = (props) => {
 
   return (
     <Element id="/what-we-do" name="/what-we-do">
-      <VisibilitySensor onChange={changeVisibilityHandler} offset={{top:10, bottom: 10}}>
         <div className={classes.planContainer}>
           <div className={classes.whatwedotextdiv}>
-            <Typography variant={isDesktop ? "h3" : "h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-              <span className={classes.blueColor}>What we do</span>
-              <p className={classes.whatwedotext}>We educate students using engaging curriculum that has been specifically designed for igniting young minds </p>
-            </Typography>
+            <VisibilitySensor onChange={changeVisibilityHandler} intervalDelay={300} scrollDelay={400}>
+              <Typography variant={isDesktop ? "h3" : "h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+                <span className={classes.blueColor}>What we do</span>
+                <p className={classes.whatwedotext}>We educate students using engaging curriculum that has been specifically designed for igniting young minds </p>
+              </Typography>
+            </VisibilitySensor>
           </div>
           <div className={classes.whatwedomodules}>
             <Grid container spacing={2}>
@@ -97,7 +98,7 @@ export const Plan = (props) => {
                 </Paper>
               </Grid>
               <Grid item xs>
-                <h2>Communication Skills</h2>
+                <h2>Communication Skills <span className={classes.blueColor}>(Coming Soon...)</span></h2>
                 <Paper className={classes.communication}>
                   <CardMedia component="img" image={communication} className={classes.media1} width="200px" height="100%" />
                 </Paper>
@@ -105,7 +106,6 @@ export const Plan = (props) => {
             </Grid>
           </div>
         </div>
-      </VisibilitySensor>
     </Element>
   )
 }

@@ -7,13 +7,16 @@ import { Carousal } from './shared/Carousal';
 
 var items = [
   {
-    description: "We are a group of Indian women who are passionate about bringing a transformative wave in the life of students in India."
+    description: "Integrity"
   },
   {
-    description: "Our objective is to add value to conventional learning by equipping students with essential life skills."
+    description: "Collaboration"
   },
   {
-    description: "We hope that our efforts will empower them to achieve their full potential and facilitate the creation of long lasting positive habits, giving them a competitive edge to succeed in life."
+    description: "Innovation"
+  },
+  {
+    description: "Committed to our communities"
   }
 ];
 
@@ -54,7 +57,7 @@ export const AboutUsCarousal = (props) => {
       <VisibilitySensor onChange={changeVisibilityHandler} offset={{top:10, bottom: 10}}>
           <div className={classes.aboutUsDiv}>
             <Typography variant={isDesktop ? "h3" : "h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-              <span className={classes.blueColor}>About Us</span>
+              <span className={classes.blueColor}>Our Values</span>
               <Carousal items={items} backgroundColor="#dce0e5" />
             </Typography>
           </div>

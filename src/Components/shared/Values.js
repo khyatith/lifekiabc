@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import VisibilitySensor from 'react-visibility-sensor';
-import { AboutUs } from './AboutUs';
+import Carousal from './Carousal';
 
-export const InfoPanel = (props) => {
+export const Values = (props) => {
   const { isDesktop } = props;
   const useStyles = makeStyles(() => ({
     container: {
@@ -14,20 +14,14 @@ export const InfoPanel = (props) => {
       backgroundColor: '#dce0e5',
       height: 'auto'
     },
-    missionDiv: {
-      flex: isDesktop && '0 0 45%',
-      margin: '20px',
-      padding: !isDesktop ? '20px 0px 0px 10px' : '70px 20px'
-      //padding: isDesktop ? '100px' : '20px 0px 0px 10px'
-    },
+    // valuesDiv: {
+    //   margin: '20px',
+    //   padding: !isDesktop ? '20px 0px 0px 10px' : '70px 20px'
+    //   //padding: isDesktop ? '100px' : '20px 0px 0px 10px'
+    // },
     missiontext: {
-      fontSize: isDesktop ? '24px' : '20px',
+      fontSize: isDesktop ? '20px' : '20px',
       lineHeight: '1.5em'
-    },
-    vl: {
-      borderLeft: '2px solid #b0b9c4',
-      marginTop: '60px',
-      marginBottom: '60px'
     },
     blueColor: {
       color: '#3299CC'
@@ -55,16 +49,12 @@ export const InfoPanel = (props) => {
 
   return (
       <div className={classes.container}>
-        <div className={classes.missionDiv}>
         <VisibilitySensor onChange={changeVisibilityHandler}>
           <Typography variant={"h4"} className={isVisible ? classes.fadeInUp : ''}>
-            <span className={classes.blueColor}>Our Mission</span>
+            <span className={classes.blueColor}>Our Values</span>
             <p className={classes.missiontext}>To promote the holistic development of students by equipping them with the skills and tools they need for success - empowering them to achieve their full potential in life.</p>
           </Typography>
         </VisibilitySensor>
-        </div>
-        { isDesktop && <div className={classes.vl}></div> }
-        <AboutUs isDesktop={isDesktop} />
       </div>
   )
 }
