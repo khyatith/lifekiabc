@@ -75,6 +75,9 @@ export const Plan = (props) => {
     history.push('/time-management');
   }
 
+  const goToCommunicationSkills = () => {
+    history.push('/communication-skills');
+  }
   const classes = useStyles();
 
   return (
@@ -96,7 +99,7 @@ export const Plan = (props) => {
                   <CardMedia component="img" image={clock} height="100%" />
                 </Paper>
               </Grid>
-              <Grid item xs>
+              <Grid item xs onClick={goToCommunicationSkills}>
                 <h2>Communication Skills</h2>
                 <Paper className={classes.communication}>
                   <CardMedia component="img" image={communication} className={classes.media1} width="200px" height="100%" />
