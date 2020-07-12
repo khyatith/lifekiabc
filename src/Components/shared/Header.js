@@ -179,14 +179,14 @@ export const Header = (props) => {
           <Typography variant="h6" className={classes.title}>
           <VisibilitySensor onChange={changeVisibilityHandler} offset={{top:10, bottom: 10}}>
             <Router.Link className={classes.desktopMenu} to={{ pathname: '/', state: { isDesktop }}}>
-              <img src={Logo1} width={ isDesktop ? "70px" : "50px"} height={ isDesktop ? "70px" : "50px" } className={isVisible ? classes.fadeInUp : ''}/>
+              <img alt="logo" src={Logo1} width={ isDesktop ? "70px" : "50px"} height={ isDesktop ? "70px" : "50px" } className={isVisible ? classes.fadeInUp : ''}/>
             </Router.Link>
           </VisibilitySensor>
           </Typography>
         </Grid>
         <Grid item xs={6}>
           { !isDesktop &&
-            <IconButton edge="start" className={classes.menuButton} color="#990000" aria-label="menu" onClick={handleMenu}>
+            <IconButton edge="start" className={classes.menuButton} aria-label="menu" onClick={handleMenu}>
               <MenuIcon />
             </IconButton>
           }

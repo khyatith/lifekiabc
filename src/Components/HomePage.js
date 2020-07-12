@@ -33,7 +33,6 @@ export const HomePage = (props) => {
     },
     logoDiv: {
       width: '100%',
-      height: '100%',
       position: 'static'
     },
     "@keyframes fadeInUp": {

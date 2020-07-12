@@ -98,7 +98,7 @@ export const Plan = (props) => {
                 </Paper>
               </Grid>
               <Grid item xs>
-                <h2>Communication Skills <span className={classes.blueColor}>(Coming Soon...)</span></h2>
+                <h2>Communication Skills</h2>
                 <Paper className={classes.communication}>
                   <CardMedia component="img" image={communication} className={classes.media1} width="200px" height="100%" />
                 </Paper>
