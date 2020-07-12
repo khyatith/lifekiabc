@@ -88,12 +88,6 @@ export const ContactUsForm = (props) => {
     setMessage(event.target.value);
   }
 
-  // const resetState = () => {
-  //   setName('');
-  //   setEmail('');
-  //   setMessage('');
-  // }
-
   const isValidEmailParams = () => {
     if (!name || !email) return false;
     return true;
@@ -118,7 +112,6 @@ export const ContactUsForm = (props) => {
       setFailure(true);
     }
     setAlertOpen(true);
-    //resetState();
   }
   const classes = useStyles();
 

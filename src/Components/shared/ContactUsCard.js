@@ -41,15 +41,13 @@ export const ContactUsCard = () => {
 
   return (
     <Card className={classes.cardRoot}>
-      <CardContent className={isVisible ? classes.fadeInUp : ''}>
-        <VisibilitySensor onChange={changeVisibilityHandler}>
-          <Typography variant={ isDesktop ? "h5" : "h6" } component="h2">
-            <p>Want more information about our training modules?</p>
-            <p>Want to showcase your career journey on our platform?</p>
-            <p>Want to help us achieve our mission?</p>
-            <p>Just feel like saying Hi?</p>
-          </Typography>
-        </VisibilitySensor>
+      <CardContent>
+        <Typography variant={ isDesktop ? "h5" : "h6" } component="h2">
+          <p>Want more information about our training modules?</p>
+          <p>Want to showcase your career journey on our platform?</p>
+          <p>Want to help us achieve our mission?</p>
+          <p>Just feel like saying Hi?</p>
+        </Typography>
         <ContactUsForm isDesktop={isDesktop}/>
       </CardContent>
     </Card>

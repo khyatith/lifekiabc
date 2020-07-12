@@ -10,6 +10,7 @@ import school from '../assets/school.jpg';
 import CardMedia from '@material-ui/core/CardMedia';
 import VisibilitySensor from 'react-visibility-sensor';
 import Typography from '@material-ui/core/Typography';
+import { Values } from './shared/Values';
 
 export const HomePage = (props) => {
   const { isDesktop } = props;
@@ -25,7 +26,9 @@ export const HomePage = (props) => {
     catchPhraseDiv: {
       width: '500px',
       backgroundColor: '#fff5eb',
-      flex: isDesktop && '0 0 65%',
+      '-webkit-box-flex': isDesktop && '0 0 45%',
+      '-ms-flex': isDesktop && '0 0 45%',
+      flex: isDesktop && '0 0 45%',
       height: !isDesktop && 'auto'
     },
     catchPhrase: {
@@ -75,6 +78,7 @@ export const HomePage = (props) => {
       </Banner>
       <Plan isDesktop={isDesktop} />
       <InfoPanel isDesktop={isDesktop} />
+      <Values isDesktop={isDesktop} />
       <ContactUsCard isDesktop={isDesktop} />
     </>
   )

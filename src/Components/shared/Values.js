@@ -2,25 +2,25 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import VisibilitySensor from 'react-visibility-sensor';
-import Carousal from './Carousal';
 
 export const Values = (props) => {
   const { isDesktop } = props;
+  const [isVisible, setVisibility] = useState(false);
+
   const useStyles = makeStyles(() => ({
-    container: {
-      display: 'flex',
-      flexWrap: !isDesktop && 'wrap',
-      margin: isDesktop ? '50px 20px' : '50px 20px',
-      backgroundColor: '#dce0e5',
-      height: 'auto'
+    planContainer: {
+      display: 'block',
+      margin: '20px',
+      backgroundColor: '#ebf5ff',
+      //textAlign: 'center',
+      padding: !isDesktop ? '20px 0px 0px 10px' : '70px 20px'
     },
-    // valuesDiv: {
-    //   margin: '20px',
-    //   padding: !isDesktop ? '20px 0px 0px 10px' : '70px 20px'
-    //   //padding: isDesktop ? '100px' : '20px 0px 0px 10px'
-    // },
-    missiontext: {
-      fontSize: isDesktop ? '20px' : '20px',
+    fadeInUp: {
+      animation: `$fadeInUp 1s both`,
+      opacity: 0,
+    },
+    valuestext: {
+      fontSize: isDesktop ? '24px' : '20px',
       lineHeight: '1.5em'
     },
     blueColor: {
@@ -35,26 +35,28 @@ export const Values = (props) => {
           opacity: 1
       }
     },
-    fadeInUp: {
-      animation: `$fadeInUp 1s both`,
-      opacity: 0,
-    },
   }));
-  const classes = useStyles(isDesktop);
-  const [isVisible, setVisibility] = useState(false);
 
   const changeVisibilityHandler = (e) => {
     setVisibility(e);
   };
 
+  const classes = useStyles();
+
   return (
-      <div className={classes.container}>
-        <VisibilitySensor onChange={changeVisibilityHandler}>
-          <Typography variant={"h4"} className={isVisible ? classes.fadeInUp : ''}>
-            <span className={classes.blueColor}>Our Values</span>
-            <p className={classes.missiontext}>To promote the holistic development of students by equipping them with the skills and tools they need for success - empowering them to achieve their full potential in life.</p>
-          </Typography>
-        </VisibilitySensor>
-      </div>
+    <div className={classes.planContainer}>
+      <VisibilitySensor onChange={changeVisibilityHandler}>
+        <Typography variant={"h4"} className={isVisible ? classes.fadeInUp : ''}>
+          <span className={classes.blueColor}>Values we stand for</span>
+          <p className={classes.valuestext}>Our values are deeply interwoven into our vision, purpose and our fresh approach to imagining and implementing life skills solution to the current education system. Our values guide our actions and are shared by our community of partners.</p>
+          <div style={{textAlign: 'center'}}>
+            <p>Integrity</p>
+            <p>Innovation</p>
+            <p>Collaboration</p>
+            <p>Dedicated to our communities</p>
+          </div>
+        </Typography>
+      </VisibilitySensor>
+    </div>
   )
 }

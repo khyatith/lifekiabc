@@ -14,7 +14,6 @@ export const ContactUsButton = (props) => {
       paddingLeft: '20px',
       paddingRight: '20px',
       zIndex: '999',
-      height: !isDesktop && '60px',
       "&:hover": {
         backgroundColor: "#990000",
         opacity: '0.8'

@@ -5,6 +5,7 @@ import { ContactUsCard } from '../shared/ContactUsCard';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Carousal } from '../shared/Carousal';
+import { Values } from '../shared/Values';
 
 const items = [
   {
@@ -56,13 +57,6 @@ export const TimeManagement = (props) => {
       width: isDesktop ? '350px' : '100%',
       cursor: 'pointer'
     },
-    communication: {
-      textAlign: 'center',
-      backgroundColor: '#ffffeb',
-      height: '300px',
-      width: isDesktop ? '350px' : '100%',
-      cursor: 'pointer'
-    },
     "@keyframes fadeInUp": {
       "from": {
           transform: "translate3d(0,40px,0)",
@@ -89,6 +83,7 @@ export const TimeManagement = (props) => {
           </div>
         </div>
       <InfoPanel isDesktop={isDesktop} />
+      <Values isDesktop={isDesktop} />
       <ContactUsCard isDesktop={isDesktop} />
     </>
   );

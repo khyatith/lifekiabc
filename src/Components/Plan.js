@@ -33,7 +33,7 @@ export const Plan = (props) => {
       flex: isDesktop && '0 0 35%',
     },
     whatwedotext: {
-      fontSize: isDesktop ? '28px' : '24px',
+      fontSize: isDesktop ? '24px' : '20px',
       lineHeight: '1.5em'
     },
     blueColor: {
@@ -55,7 +55,6 @@ export const Plan = (props) => {
       backgroundColor: '#ffffeb',
       height: '300px',
       width: isDesktop ? '350px' : '100%',
-      cursor: 'pointer'
     },
     "@keyframes fadeInUp": {
       "from": {
@@ -82,8 +81,8 @@ export const Plan = (props) => {
     <Element id="/what-we-do" name="/what-we-do">
         <div className={classes.planContainer}>
           <div className={classes.whatwedotextdiv}>
-            <VisibilitySensor onChange={changeVisibilityHandler} intervalDelay={300} scrollDelay={400}>
-              <Typography variant={isDesktop ? "h3" : "h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+            <VisibilitySensor onChange={changeVisibilityHandler}>
+              <Typography variant={"h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
                 <span className={classes.blueColor}>What we do</span>
                 <p className={classes.whatwedotext}>We educate students using engaging curriculum that has been specifically designed for igniting young minds </p>
               </Typography>
