@@ -24,7 +24,7 @@ export const HomePage = (props) => {
       lineHeight: '1.5em'
     },
     catchPhraseDiv: {
-      width: '500px',
+      //width: '500px',
       backgroundColor: '#fff5eb',
       display: 'inline-block',
       // '-webkit-box-flex': isDesktop && '0 0 45%',
