@@ -57,7 +57,7 @@ export const HomePageBanner = (props) => {
       <Grid item xs={12} md={4} className={classes.catchPhraseDiv}>
         <div className={classes.catchPhrase}>
           <Typography variant={"h4"} className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}`}>
-            Empowering students with essential life skills 
+            Empowering students with essential life skills
           </Typography>
         </div>
         <ContactUsButton />

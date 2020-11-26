@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ContactUsForm } from './ContactUsForm';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import VisibilitySensor from 'react-visibility-sensor';
 import { makeStyles } from '@material-ui/core/styles';
 
 export const ContactUsCard = () => {
   const isDesktop = window.innerWidth > 1200;
-  const [isVisible, setVisibility] = useState(false);
 
   const useStyles = makeStyles(() => ({
     cardRoot: {
@@ -35,9 +33,6 @@ export const ContactUsCard = () => {
   }));
 
   const classes = useStyles();
-  const changeVisibilityHandler = (e) => {
-    setVisibility(e);
-  };
 
   return (
     <Card className={classes.cardRoot}>

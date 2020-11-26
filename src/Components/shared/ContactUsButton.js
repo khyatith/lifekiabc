@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { scroller } from 'react-scroll';
+import { useHistory } from "react-router-dom";
 
 export const ContactUsButton = (props) => {
   const { isDesktop } = props;
+  const history = useHistory();
   const useStyles = makeStyles(() => ({
     contactUsBtn: {
       color: '#ffffff',
@@ -14,6 +15,7 @@ export const ContactUsButton = (props) => {
       paddingLeft: '20px',
       paddingRight: '20px',
       zIndex: '999',
+      lineHeight: '1',
       "&:hover": {
         backgroundColor: "#990000",
         opacity: '0.8'
@@ -21,17 +23,21 @@ export const ContactUsButton = (props) => {
     },
   }));
 
-  const scrollToContactUs = () => {
-    scroller.scrollTo('/contact-us', {
-      duration: 3000,
-      delay: 100,
-      smooth: 'easeInOut'
-    })
+  const openFreeRegistrationForm = () => {
+    history.push('/free-demo-registration');
   }
+
+  // const scrollToContactUs = () => {
+  //   scroller.scrollTo('/contact-us', {
+  //     duration: 3000,
+  //     delay: 100,
+  //     smooth: 'easeInOut'
+  //   })
+  // }
   const classes = useStyles();
   return (
-    <Button variant="contained" className={classes.contactUsBtn} onClick={() => scrollToContactUs()}>
-      <h2>Contact us</h2>
+    <Button variant="contained" className={classes.contactUsBtn} onClick={() => openFreeRegistrationForm()}>
+      <h2>Request a free demo</h2>
     </Button>
   )
 };

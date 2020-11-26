@@ -2,6 +2,7 @@ import React from 'react';
 import { HomePage } from './Components/HomePage';
 import { TimeManagement } from './Components/modules/TimeManagement';
 import { CommunicationSkills } from './Components/modules/CommunicationSkills';
+import { FreeDemoRegistration } from './Components/shared/FreeDemoRegistration.js';
 import ScrollTop from './Components/shared/ScrollToTop';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -32,6 +33,9 @@ function App() {
             </Route>
             <Route path="/communication-skills">
               <CommunicationSkills isDesktop={isDesktop} />
+            </Route>
+            <Route path="/free-demo-registration">
+              <FreeDemoRegistration isDesktop={isDesktop} />
             </Route>
             <Route path="/">
                 <HomePage isDesktop={isDesktop}/>
