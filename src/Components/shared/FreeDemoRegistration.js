@@ -63,6 +63,7 @@ export const FreeDemoRegistration = (props) => {
       margin: '0 auto',
       position: 'relative',
       justifyContent: 'center',
+      paddingTop: '50px',
       textAlign: 'center',
       '& .MuiTextField-root': {
         width: isDesktop ? '400px' : '100%',
@@ -236,6 +237,8 @@ export const FreeDemoRegistration = (props) => {
           <Typography variant={"h6"}>
             Please enter your details and we will get back to you right away!
           </Typography>
+          <br/>
+          <br/>
           <TextField error={!emailValidated} required id="parentName" label="Parent's Name" value={parentName} onChange={handleParentNameChange}/>
           <TextField error={!emailValidated} required id="childName" label="Child's Name" value={childName} onChange={handleChildNameChange}/>
           <FormControl className={classes.formControl}>

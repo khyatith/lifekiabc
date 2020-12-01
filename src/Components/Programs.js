@@ -6,39 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import { Element } from 'react-scroll';
 import VisibilitySensor from 'react-visibility-sensor';
 import Paper from '@material-ui/core/Paper';
-import timeManagement from '../assets/clock.png';
-import communicationSkills from '../assets/communicationSkills.png';
-import leadershipSkills from '../assets/leadershipSkills.png';
-import publicSpeaking from '../assets/publicSpeaking.jpg';
-import stressManagement from '../assets/stressManagement.jpg';
-import superAchievers from '../assets/superAchievers.jpeg';
 import { useHistory } from "react-router-dom";
-
-const INDIVIDUAL_COURSES = [{
-  name: 'Time Management',
-  link: '/time-management',
-  image: timeManagement
-}, {
-  name: 'Communication Skills',
-  link: '/communication-skills',
-  image: communicationSkills
-}, {
-  name: 'Public Speaking & Confidence Building',
-  link: '/PSCB',
-  image: publicSpeaking
-}, {
-  name: 'Stress Management',
-  link: '/stress-management',
-  image: stressManagement
-}, {
-  name: 'Super Leaders Program',
-  link: '/super-leaders-program',
-  image: leadershipSkills
-}, {
-  name: 'Super Achievers Program',
-  link: '/super-achievers-program',
-  image: superAchievers
-}]
+import { INDIVIDUAL_COURSES } from '../data/programs';
 
 export const Programs = (props) => {
   const { isDesktop } = props;
@@ -93,15 +62,19 @@ export const Programs = (props) => {
     setVisibility(e);
   };
 
-  const renderCourseDetail = (e, link) => {
-    history.push(link);
+  const renderCourseDetail = (e, course) => {
+    const { name, image, link } = course;
+    history.push({
+      pathname: `/course/${link}`,
+      state: { name }
+  });
   }
 
   const renderIndividualCourses = () => {
     return INDIVIDUAL_COURSES.map((course, i) => {
       const { name, image, link } = course;
       return (
-        <Grid key={i} value={name} item xs={12} sm={3} onClick={(e) => renderCourseDetail(e, link)}>
+        <Grid key={i} value={name} item xs={12} sm={3} onClick={(e) => renderCourseDetail(e, course)}>
           <h3 className={classes.courseTitle}>{name}</h3>
           <Paper className={classes.modules}>
             <CardMedia component="img" image={image} height="100%" />

@@ -5,12 +5,12 @@ import Grid from '@material-ui/core/Grid';
 import { ContactUsButton } from './shared/ContactUsButton';
 import { Programs } from './Programs';
 import { InfoPanel } from './InfoPanel';
-import { ContactUsCard } from './shared/ContactUsCard';
-import Logo1 from '../assets/logo1.png';
+import homepageimg from '../assets/hp.png';
 import CardMedia from '@material-ui/core/CardMedia';
 import VisibilitySensor from 'react-visibility-sensor';
 import Typography from '@material-ui/core/Typography';
-import { Values } from './shared/Values';
+import { Testimonials } from './Testimonials';
+import { Partners } from './Partners';
 
 export const HomePage = (props) => {
   const { isDesktop } = props;
@@ -82,15 +82,15 @@ export const HomePage = (props) => {
               <ContactUsButton />
             </Grid>
             <Grid item xs={12} md={8} className={`${classes.logoDiv} ${isVisible ? classes.fadeInUp : ''}`}>
-              <CardMedia component="img" image={Logo1} className={classes.media1} height={isDesktop ? '300px' : '100%'} width={'200px'}/>
+              <CardMedia component="img" image={homepageimg} className={classes.media1} height={isDesktop ? '300px' : '100%'} width={'200px'}/>
             </Grid>
           </div>
         </VisibilitySensor>
       </Banner>
       <Programs isDesktop={isDesktop} />
       <InfoPanel isDesktop={isDesktop} />
-      <Values isDesktop={isDesktop} />
-      <ContactUsCard isDesktop={isDesktop} />
+      <Testimonials isDesktop={isDesktop} />
+      <Partners isDesktop={isDesktop} />
     </>
   )
 }

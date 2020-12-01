@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Carousal } from '../shared/Carousal';
 import { Values } from '../shared/Values';
-import comingSoon from '../../assets/comingSoon.png';
+//import comingSoon from '../../assets/comingSoon.png';
 import { Banner } from '../shared/Banner';
 
 export const CommunicationSkills = (props) => {
@@ -60,7 +60,7 @@ export const CommunicationSkills = (props) => {
   return(
     <>
       <Banner isDesktop={isDesktop}>
-        <img alt="communication" src={comingSoon} height={ isDesktop ? "500px" : "auto" } width={ isDesktop ? "auto" : "100%"} />
+        <img alt="communication" height={ isDesktop ? "500px" : "auto" } width={ isDesktop ? "auto" : "100%"} />
       </Banner>
       {/* <div className={classes.TMContainer}>
           <div className={classes.whatwedotextdiv}>

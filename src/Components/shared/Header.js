@@ -11,7 +11,8 @@ import Grid from '@material-ui/core/Grid';
 import { scroller, Link } from 'react-scroll';
 import * as Router from 'react-router-dom';
 import Logo1 from '../../assets/logo1.png';
-import VisibilitySensor from 'react-visibility-sensor'; 
+import VisibilitySensor from 'react-visibility-sensor';
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -73,6 +74,7 @@ export const Header = (props) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [isVisible, setVisibility] = useState(false);
+  const history = useHistory();
   const { isDesktop } = props;
   const open = Boolean(anchorEl);
 
@@ -142,11 +144,12 @@ export const Header = (props) => {
   };
 
   const scrollToContactUs = () => {
-    scroller.scrollTo('/contact-us', {
-      duration: 3000,
-      delay: 100,
-      smooth: 'easeInOutQuart'
-    })
+    // scroller.scrollTo('/contact-us', {
+    //   duration: 3000,
+    //   delay: 100,
+    //   smooth: 'easeInOutQuart'
+    // })
+    history.push('/free-demo-registration');
   };
 
   const renderDesktopMenu = () => {
@@ -157,12 +160,12 @@ export const Header = (props) => {
         </Grid>
         <Grid item xs={3}>
           <Typography variant="h6">
-            <Link className={classes.desktopMenu} onClick={() => scrollToContactUs()}>Contact us</Link>
+            <Link to="" className={classes.desktopMenu} onClick={() => scrollToContactUs()}>Contact us</Link>
           </Typography>
         </Grid>
         <Grid item xs={3}>
           <Typography variant="h6">
-            <Link className={classes.desktopMenu} onClick={() => scrollToAboutUs()}>About us</Link>
+            <Link to="" className={classes.desktopMenu} onClick={() => scrollToAboutUs()}>About us</Link>
           </Typography>
         </Grid>
         <Grid item xs={3}>
