@@ -13,7 +13,7 @@ export const Values = (props) => {
       margin: '20px',
       backgroundColor: '#ebf5ff',
       //textAlign: 'center',
-      padding: !isDesktop ? '20px' : '70px 20px'
+      padding: '20px'
     },
     fadeInUp: {
       animation: `$fadeInUp 1s both`,

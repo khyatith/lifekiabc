@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import { Element } from 'react-scroll';
 import VisibilitySensor from 'react-visibility-sensor';
 import Paper from '@material-ui/core/Paper';
 import { useHistory } from "react-router-dom";
@@ -15,7 +14,7 @@ export const Programs = (props) => {
   const history = useHistory();
 
   const useStyles = makeStyles(() => ({
-    planContainer: {
+    container: {
       display: 'flex',
       margin: '20px',
     },
@@ -23,14 +22,10 @@ export const Programs = (props) => {
       animation: `$fadeInUp 1s both`,
       opacity: 0,
     },
-    whatwedotext: {
-      fontSize: isDesktop ? '24px' : '20px',
-      lineHeight: '1.5em'
-    },
     blueColor: {
       color: '#3299CC'
     },
-    whatwedomodules: {
+    ourprograms: {
       flex: 1,
       cursor: 'pointer',
     },
@@ -87,23 +82,21 @@ export const Programs = (props) => {
   const classes = useStyles();
 
   return (
-    <Element id="/what-we-do" name="/what-we-do">
-        <div className={classes.planContainer}>
-          <div>
-            <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
-              <>
-                <Typography variant={"h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-                  <span className={classes.blueColor}>Our Courses</span>
-                </Typography>
-                <div className={classes.whatwedomodules}>
-                  <Grid container spacing={6}>
-                    {renderIndividualCourses()}
-                  </Grid>
-                </div>
-              </>
-            </VisibilitySensor>
-          </div>
-        </div>
-    </Element>
+    <div className={classes.container}>
+      <div>
+        <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
+          <>
+            <Typography variant={"h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+              <span className={classes.blueColor}>Our Courses</span>
+            </Typography>
+            <div className={classes.ourprograms}>
+              <Grid container spacing={6}>
+                {renderIndividualCourses()}
+              </Grid>
+            </div>
+          </>
+        </VisibilitySensor>
+      </div>
+    </div>
   )
 }

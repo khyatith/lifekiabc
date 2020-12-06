@@ -59,19 +59,19 @@ export const FreeDemoRegistration = (props) => {
       }
     },
     contactUsFormContainer: {
-      width: '500px',
+      maxWidth: '500px',
       margin: '0 auto',
       position: 'relative',
       justifyContent: 'center',
       paddingTop: '50px',
       textAlign: 'center',
       '& .MuiTextField-root': {
-        width: isDesktop ? '400px' : '100%',
+        width: isDesktop ? '500px' : '100%',
         marginBottom: '50px'
       }
     },
     formControl: {
-      width: '80%',
+      width: '500px',
       marginBottom: '50px'
     },
     "@keyframes fadeInUp": {

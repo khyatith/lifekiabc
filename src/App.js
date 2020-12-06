@@ -7,6 +7,7 @@ import { CourseDetail } from './Components/shared/CourseDetail';
 import ScrollTop from './Components/shared/ScrollToTop';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import { AboutUs } from './Components/AboutUs';
 import {
   BrowserRouter as Router,
   Switch,
@@ -40,6 +41,9 @@ function App() {
             </Route>
             <Route path="/course/:name">
               <CourseDetail isDesktop={isDesktop} />
+            </Route>
+            <Route path="/about-us">
+              <AboutUs isDesktop={isDesktop} />
             </Route>
             <Route path="/">
               <HomePage isDesktop={isDesktop}/>

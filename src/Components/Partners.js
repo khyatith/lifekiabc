@@ -5,17 +5,11 @@ import VisibilitySensor from 'react-visibility-sensor';
 import Grid from '@material-ui/core/Grid';
 import CardMedia from '@material-ui/core/CardMedia';
 import Dizikid from '../assets/partners/dizikid-logo.png';
+import PurplePheonix from '../assets/partners/purple-pheonix-logo.jpg';
 import Card from '@material-ui/core/Card';
-import IconButton from '@material-ui/core/IconButton';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import { green, lightBlue, blue } from '@material-ui/core/colors';
-import WhatsAppIcon from '@material-ui/icons/WhatsApp';
-import Link from '@material-ui/core/Link';
 import { useHistory } from "react-router-dom";
-
+import { ConnectWithUs } from './shared/ConnectWithUs'
+;
 export const Partners = (props) => {
   const { isDesktop } = props;
   const [isVisible, setVisibility] = useState(false);
@@ -76,26 +70,6 @@ export const Partners = (props) => {
     setVisibility(e);
   };
 
-  const handleIGClick = () => {
-    window.open('https://www.instagram.com/lifekiabc/', '_blank');
-  }
-
-  const handleFBClick = () => {
-    window.open('https://www.facebook.com/lifekiabc', '_blank');
-  }
-  
-  const handleTwitterClick = () => {
-    window.open('https://twitter.com/LifeKiABC', '_blank');
-  }
-
-  const handleLinkedinClick = () => {
-    window.open('https://www.linkedin.com/company/lifekiabc/?viewAsMember=true', '_blank');
-  }
-
-  const goToDemoForm = () => {
-    history.push('/free-demo-registration');
-  }
-
   const classes = useStyles();
 
   return (
@@ -109,44 +83,17 @@ export const Partners = (props) => {
             <div style={{maxWidtg: '400px'}}>
             <Card>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={4}>
+                <Grid item xs={12} sm={6}>
                   <CardMedia component="img" image={Dizikid} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <CardMedia component="img" image={PurplePheonix} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>
                 </Grid>
               </Grid>
             </Card>
             </div>
           </div>
-          <div className={classes.connectDiv}>
-            <Typography variant={"h4"} className={isVisible ? classes.fadeInUp : ''}>
-              <span className={classes.blueColor}>Connect with us</span>
-            </Typography>
-            <br />
-            <Card style={{padding:"20px"}}>
-              <IconButton onClick={handleIGClick} size="medium" color="secondary">
-                <InstagramIcon style={{ fontSize: 40 }} />
-              </IconButton>
-              <IconButton onClick={handleFBClick} size="medium" color="primary">
-                <FacebookIcon style={{ fontSize: 40 }} />
-              </IconButton>
-              <IconButton onClick={handleTwitterClick} size="medium">
-                <TwitterIcon style={{ color: lightBlue[400], fontSize: 40 }}/>
-              </IconButton>
-              <IconButton onClick={handleLinkedinClick} size="medium" color="primary">
-                <LinkedInIcon style={{ color: blue[700], fontSize: 40 }}/>
-              </IconButton>
-              <div className={classes.whatsappDiv}>
-                <WhatsAppIcon style={{ color: green[500], fontSize: 40, marginRight: '20px' }}/>
-                <Typography variant={"h6"} className={isVisible ? classes.fadeInUp : ''}>
-                  <span>+1(213)-509-7049&nbsp;&nbsp;/&nbsp;&nbsp;+1(646)-824-1790</span>
-                </Typography>
-              </div>
-              <div className={classes.whatsappDiv}>
-                <br/>
-                <br/>
-                <Link component="button" href="#" onClick={goToDemoForm} style={{ color: blue[700], fontSize: 20 }}>Request a free demo</Link>
-              </div>
-            </Card>
-          </div>
+          <ConnectWithUs isDesktop={isDesktop} shouldWrap={props.shouldWrap} />
         </>
       </VisibilitySensor>
     </div>

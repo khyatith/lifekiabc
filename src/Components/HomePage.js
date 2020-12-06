@@ -90,7 +90,7 @@ export const HomePage = (props) => {
       <Programs isDesktop={isDesktop} />
       <InfoPanel isDesktop={isDesktop} />
       <Testimonials isDesktop={isDesktop} />
-      <Partners isDesktop={isDesktop} />
+      <Partners isDesktop={isDesktop} shouldWrap={true} />
     </>
   )
 }

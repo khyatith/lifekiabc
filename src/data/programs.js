@@ -26,6 +26,9 @@ export const INDIVIDUAL_COURSES = [{
   name: 'Super Leaders Program',
   link: 'super-leaders',
   image: leadershipSkills,
+  catchPhrase: 'Creating leaders of tomorrow',
+  ctaText: 'Request a free demo',
+  ageGroup: '10 - 18 years',
   description: "Super leaders program offered by Life ki ABC is one of its kind life skills program for teens and pre-teens that builds leadership and ownership skills in students. Through our engaging curriculum, we aim to ignite young minds to learn about what leadership means and we teach them specific techniques that they can implement to become a leader in their own lives. We believe in inculcating long lasting positive habits and to promote the holistic development of students by equipping them with the skills and tools they need for success - empowering them to achieve their full potential in life.",
   benefits: [
     "Higher degree of focus, commitment, and concentration",

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useLocation } from "react-router-dom";
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { Header } from './Header';
 import { Banner } from './Banner';
@@ -10,10 +9,15 @@ import VisibilitySensor from 'react-visibility-sensor';
 import Typography from '@material-ui/core/Typography';
 import { ContactUsButton } from './ContactUsButton';
 import { INDIVIDUAL_COURSES } from '../../data/programs';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import { ConnectWithUs } from './ConnectWithUs';
 
 export const CourseDetail = (props) => {
   const { isDesktop } = props;
   const [selectedCourseName, setSelectedCourseName] = useState('');
+  const [isVisible, setVisibility] = useState(false);
   const [selectedCourseDetail, setSelectedCourseDetail] = useState({});
   const location = useLocation();
 
@@ -39,16 +43,13 @@ export const CourseDetail = (props) => {
     },
     missionStmt1: {
       color: '#000000',
-      lineHeight: '1.5em'
+      lineHeight: '1.5em',
+      fontWeight: 'bold',
+      fontSize: isDesktop ? '2em' : '2em',
     },
     catchPhraseDiv: {
-      //width: '500px',
       backgroundColor: '#fff5eb',
       display: 'inline-block',
-      // '-webkit-box-flex': isDesktop && '0 0 45%',
-      // '-ms-flex': isDesktop && '0 0 45%',
-      // flex: isDesktop && '0 0 45%',
-      //height: !isDesktop && 'auto',
       float: 'left',
       height: isDesktop ? '300px' : '100%',
     },
@@ -61,26 +62,123 @@ export const CourseDetail = (props) => {
     media1: {
       objectFit: 'contain'
     },
+    courseDescription: {
+      display: 'flex',
+      margin: '20px',
+    },
+    courseCurriculum: {
+      display: 'flex',
+      margin: '20px'
+    },
+    courseBenefits: {
+      display: 'flex',
+      flexWrap: !isDesktop && 'wrap',
+      margin: isDesktop ? '50px 20px' : '50px 20px',
+      padding: '20px',
+      backgroundColor: '#dce0e5',
+      height: 'auto'
+    },
     imgDiv: {
       width: '100%',
       position: 'static',
       display: 'inline-block',
       //height: isDesktop ? '500px' : 'auto',
     },
+    blueColor: {
+      color: '#3299CC'
+    },
+    fontSizeMd: {
+      fontSize: '1.5em',
+      lineHeight: '1.4'
+    },
+    bold: {
+      fontWeight: 'bold'
+    },
+    curriculumCard: {
+      display: 'inline-block',
+      margin: "20px",
+      width: 345,
+      height: '300px',
+      padding: '10px',
+      border: '2px solid #fbcd4c'
+    },
+    "@keyframes fadeInUp": {
+      "from": {
+          transform: "translate3d(0,40px,0)",
+      }, 
+      "to": {
+          transform: "translate3d(0,0,0)",
+          opacity: 1
+      }
+    },
+    fadeInUp: {
+      animation: `$fadeInUp 1s both`,
+      opacity: 0,
+    },
   }));
   const classes = useStyles();
+  const changeVisibilityHandler = (e) => {
+    setVisibility(e);
+  };
+
+  const renderBenefits = () => {
+    return (
+      <ul>
+      {selectedCourseDetail.benefits && selectedCourseDetail.benefits.map((benefit) => {
+          return (
+            <li>
+              <p className={`${classes.fontSizeMd} ${isVisible ? classes.fadeInUp : ''}`}>{benefit}</p>
+            </li>
+          )
+        })
+      }
+      </ul>
+    )
+  }
+
+  const renderCurriculum = () => {
+    const curriculum = selectedCourseDetail.curriculum && selectedCourseDetail.curriculum;
+    if (!curriculum) return;
+    return (
+      curriculum.map((course, index) => {
+        const { title, list } = course;
+        return (
+          <Card className={classes.curriculumCard} key={index}>
+            <CardActionArea>
+              <Typography variant={"h5"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+                <p className={classes.bold}>{title}</p>
+              </Typography>
+              <CardContent style={{ padding: 0 }}>
+                <ul>
+                  {list.map(li => {
+                    return (<li>
+                      <p style={{ fontSize: '15px'}} className={`${isVisible ? classes.fadeInUp : ''}`}>{li}</p>
+                    </li>)
+                  })}
+                </ul>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+          )
+        }
+      )
+    )
+  };
+
   return (
     <>
       <Banner isDesktop={isDesktop}>
-        <VisibilitySensor>
+        <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
           <div className={classes.container}>
             <Grid item xs={12} md={8} className={classes.imgDiv}>
               <CardMedia component="img" image={selectedCourseDetail.image} className={classes.media1} height={isDesktop ? '300px' : '100%'} width={'200px'}/>
             </Grid>
             <Grid item xs={12} md={4} className={classes.catchPhraseDiv}>
               <div className={classes.catchPhrase}>
-                <Typography variant={"h5"} className={`${classes.missionStmt1}`}>
-                  {selectedCourseDetail.description}
+                <Typography variant={"h4"} className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}` }>
+                  {selectedCourseDetail.catchPhrase}
+                  <br/>
+                  {`(${selectedCourseDetail.ageGroup})`}
                 </Typography>
               </div>
               <ContactUsButton />
@@ -88,6 +186,35 @@ export const CourseDetail = (props) => {
           </div>
         </VisibilitySensor>
       </Banner>
+      <div className={classes.courseDescription}>
+        <div>
+          <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
+            <>
+              <Typography variant={"h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+                <span className={classes.blueColor}>What is Super Leader Program</span>
+              </Typography>
+              <p className={`${classes.fontSizeMd} ${isVisible ? classes.fadeInUp : ''}`}>{selectedCourseDetail.description}</p>
+            </>
+          </VisibilitySensor>
+        </div>
+      </div>
+      <div className={classes.courseBenefits}>
+        <div>
+          <Typography variant={"h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+            <span className={classes.blueColor}>Outcomes of Super Leaders Program</span>
+          </Typography>
+          {renderBenefits()}
+        </div>
+      </div>
+      <div className={classes.courseCurriculum}>
+        <div>
+          <Typography variant={"h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+            <span className={classes.blueColor}>Curriculum</span>
+          </Typography>
+          {renderCurriculum()}
+        </div>
+      </div>
+      <ConnectWithUs isDesktop={isDesktop} shouldWrap={false} />
     </>
   );
 }

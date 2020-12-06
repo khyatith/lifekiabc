@@ -86,7 +86,7 @@ export const Header = (props) => {
   }
   const handleAboutUsClose = () => {
     setAnchorEl(null);
-    scrollToAboutUs();
+    goToAboutUs();
   };
 
   const handleOurContentClose = () => {
@@ -122,17 +122,13 @@ export const Header = (props) => {
       >
         <MenuItem onClick={handleContactUsClose} classes={{ root: classes.listItemClass }}>Contact us</MenuItem>
         <MenuItem onClick={handleAboutUsClose} classes={{ root: classes.listItemClass }}>About us</MenuItem>
-        <MenuItem onClick={handleOurContentClose} classes={{ root: classes.listItemClass }}>What we do</MenuItem>
+        <MenuItem onClick={handleOurContentClose} classes={{ root: classes.listItemClass }}>Our programs</MenuItem>
       </Menu>
     );
   }
   
-  const scrollToAboutUs = () => {
-    scroller.scrollTo('/about-us', {
-      duration: 3000,
-      delay: 100,
-      smooth: 'easeInOutQuart'
-    })
+  const goToAboutUs = () => {
+    history.push('/about-us');
   };
 
   const scrollToOurContent = () => {
@@ -144,11 +140,6 @@ export const Header = (props) => {
   };
 
   const scrollToContactUs = () => {
-    // scroller.scrollTo('/contact-us', {
-    //   duration: 3000,
-    //   delay: 100,
-    //   smooth: 'easeInOutQuart'
-    // })
     history.push('/free-demo-registration');
   };
 
@@ -165,11 +156,11 @@ export const Header = (props) => {
         </Grid>
         <Grid item xs={3}>
           <Typography variant="h6">
-            <Link to="" className={classes.desktopMenu} onClick={() => scrollToAboutUs()}>About us</Link>
+            <Link to="" className={classes.desktopMenu} onClick={() => goToAboutUs()}>About us</Link>
           </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="h6" className={classes.desktopMenu} onClick={() => scrollToOurContent()}>What we do</Typography>
+          <Typography variant="h6" className={classes.desktopMenu} onClick={() => scrollToOurContent()}>Our Programs</Typography>
         </Grid>
       </div>
     )
