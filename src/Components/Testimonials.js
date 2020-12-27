@@ -56,8 +56,8 @@ export const Testimonials = (props) => {
     <div className={classes.planContainer}>
       <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
         <>
-          <Typography variant={"h4"} className={isVisible ? classes.fadeInUp : ''}>
-            <span className={classes.blueColor}>What parents and children say about our programs</span>
+          <Typography variant={"h5"} className={isVisible ? classes.fadeInUp : ''}>
+            <span className={classes.blueColor}>Testimonials</span>
           </Typography>
           <Grid container spacing={4}>
             <Grid item xs={12} sm={4}>

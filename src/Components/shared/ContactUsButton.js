@@ -8,6 +8,7 @@ export const ContactUsButton = (props) => {
   const history = useHistory();
   const useStyles = makeStyles(() => ({
     contactUsBtn: {
+      marginBottom: !isDesktop && '20px',
       color: '#ffffff',
       backgroundColor: '#990000',
       marginTop: !isDesktop && '-30px',

@@ -29,8 +29,10 @@ export const Partners = (props) => {
       opacity: 0,
     },
     media: {
+      width: !isDesktop && '200px',
+      height: !isDesktop && '200px',
       objectFit: 'contain',
-      margin: '30px'
+      margin: isDesktop ? '30px' : '20px auto'
     },
     // vl: {
     //   borderLeft: '1px solid #b0b9c4',
@@ -49,7 +51,7 @@ export const Partners = (props) => {
       flex: "0 0 45%"
     },
     partnerDiv: {
-      flex: "0 0 45%"
+      flex: isDesktop && "0 0 45%",
     },
     // missionDiv1: {
     //   margin: '20px',
@@ -77,11 +79,11 @@ export const Partners = (props) => {
       <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
         <>
           <div className={classes.partnerDiv}>
-            <Typography variant={"h4"} className={isVisible ? classes.fadeInUp : ''} style={{margin: '0px 0px 30px 0px'}}>
+            <Typography variant={"h5"} className={isVisible ? classes.fadeInUp : ''} style={{margin: '0px 0px 30px 0px'}}>
               <span className={classes.blueColor}>Our partners</span>
             </Typography>
             <div style={{maxWidtg: '400px'}}>
-            <Card>
+            <Card style={{border: '1px solid #ffab00'}}>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6}>
                   <CardMedia component="img" image={Dizikid} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>

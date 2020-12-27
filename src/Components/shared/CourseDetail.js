@@ -8,7 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import VisibilitySensor from 'react-visibility-sensor';
 import Typography from '@material-ui/core/Typography';
 import { ContactUsButton } from './ContactUsButton';
-import { INDIVIDUAL_COURSES } from '../../data/programs';
+import { MINI_COURSES, LONG_TERM_PROGRAMS } from '../../data/programs';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -23,8 +23,10 @@ export const CourseDetail = (props) => {
 
   useEffect(() => {
     const name = location.state.name;
+    const type = location.state.type;
+    const dataSource = type === "course" ? MINI_COURSES : LONG_TERM_PROGRAMS
     setSelectedCourseName(name);
-    const courseDetail = INDIVIDUAL_COURSES.filter(course => course.name === name)[0];
+    const courseDetail = dataSource.filter(course => course.name === name)[0];
     setSelectedCourseDetail(courseDetail);
  }, [location]);
   
@@ -45,7 +47,7 @@ export const CourseDetail = (props) => {
       color: '#000000',
       lineHeight: '1.5em',
       fontWeight: 'bold',
-      fontSize: isDesktop ? '2em' : '2em',
+      fontSize: isDesktop ? '1.5em' : '2em',
     },
     catchPhraseDiv: {
       backgroundColor: '#fff5eb',
@@ -88,7 +90,7 @@ export const CourseDetail = (props) => {
       color: '#3299CC'
     },
     fontSizeMd: {
-      fontSize: '1.5em',
+      fontSize: '20px',
       lineHeight: '1.4'
     },
     bold: {
@@ -136,34 +138,48 @@ export const CourseDetail = (props) => {
     )
   }
 
+  const renderProgramCurriculum = (programCurriculum) => {
+    return programCurriculum.map((curr , index) => {
+      const { title, list } = curr;
+      return (
+      <Card className={classes.curriculumCard} key={index}>
+        <CardActionArea>
+          <Typography variant={"h6"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+            <p className={classes.bold}>{title}</p>
+          </Typography>
+          <CardContent style={{ padding: 0 }}>
+            <ul>
+              {list.map(li => {
+                return (<li>
+                  <p style={{ fontSize: '15px'}} className={`${isVisible ? classes.fadeInUp : ''}`}>{li}</p>
+                </li>)
+              })}
+            </ul>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+      )
+    })
+  }
+
   const renderCurriculum = () => {
     const curriculum = selectedCourseDetail.curriculum && selectedCourseDetail.curriculum;
+    const type = selectedCourseDetail.type && selectedCourseDetail.type;
     if (!curriculum) return;
-    return (
-      curriculum.map((course, index) => {
-        const { title, list } = course;
-        return (
-          <Card className={classes.curriculumCard} key={index}>
-            <CardActionArea>
-              <Typography variant={"h5"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-                <p className={classes.bold}>{title}</p>
-              </Typography>
-              <CardContent style={{ padding: 0 }}>
-                <ul>
-                  {list.map(li => {
-                    return (<li>
-                      <p style={{ fontSize: '15px'}} className={`${isVisible ? classes.fadeInUp : ''}`}>{li}</p>
-                    </li>)
-                  })}
-                </ul>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-          )
-        }
-      )
-    )
-  };
+    if (type === "course") {
+        return curriculum.map((benefit, index) => {
+          return (
+          <ul>
+            <li>
+              <p style={{ fontSize: '20px'}} className={`${isVisible ? classes.fadeInUp : ''}`}>{benefit}</p>
+            </li>
+          </ul>
+        )
+      })
+    } else {
+      return renderProgramCurriculum(curriculum);
+    }
+  }
 
   return (
     <>
@@ -175,7 +191,7 @@ export const CourseDetail = (props) => {
             </Grid>
             <Grid item xs={12} md={4} className={classes.catchPhraseDiv}>
               <div className={classes.catchPhrase}>
-                <Typography variant={"h4"} className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}` }>
+                <Typography variant={"h6"} className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}` }>
                   {selectedCourseDetail.catchPhrase}
                   <br/>
                   {`(${selectedCourseDetail.ageGroup})`}
@@ -190,8 +206,8 @@ export const CourseDetail = (props) => {
         <div>
           <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
             <>
-              <Typography variant={"h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-                <span className={classes.blueColor}>What is Super Leader Program</span>
+              <Typography variant={"h6"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+                <span className={classes.blueColor}>What is {selectedCourseDetail.name} {selectedCourseDetail.type}</span>
               </Typography>
               <p className={`${classes.fontSizeMd} ${isVisible ? classes.fadeInUp : ''}`}>{selectedCourseDetail.description}</p>
             </>
@@ -200,15 +216,15 @@ export const CourseDetail = (props) => {
       </div>
       <div className={classes.courseBenefits}>
         <div>
-          <Typography variant={"h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-            <span className={classes.blueColor}>Outcomes of Super Leaders Program</span>
+          <Typography variant={"h6"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+            <span className={classes.blueColor}>Outcomes of {selectedCourseDetail.name} {selectedCourseDetail.type}</span>
           </Typography>
           {renderBenefits()}
         </div>
       </div>
       <div className={classes.courseCurriculum}>
         <div>
-          <Typography variant={"h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+          <Typography variant={"h6"} className={`${isVisible ? classes.fadeInUp : ''}`}>
             <span className={classes.blueColor}>Curriculum</span>
           </Typography>
           {renderCurriculum()}

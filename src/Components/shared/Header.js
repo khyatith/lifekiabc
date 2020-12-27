@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useLocation } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -8,7 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import Grid from '@material-ui/core/Grid';
-import { scroller, Link } from 'react-scroll';
+import { Link } from 'react-scroll';
 import * as Router from 'react-router-dom';
 import Logo1 from '../../assets/logo1.png';
 import VisibilitySensor from 'react-visibility-sensor';
@@ -89,15 +89,20 @@ export const Header = (props) => {
     goToAboutUs();
   };
 
-  const handleOurContentClose = () => {
+  const handleOurCoursesClose = () => {
     setAnchorEl(null);
-    scrollToOurContent();
+    goToOurCourses();
   };
 
   const handleContactUsClose = () => {
     setAnchorEl(null);
-    scrollToContactUs();
+    goToContactUs();
   };
+
+  const handleHomeClose = () => {
+    setAnchorEl(null);
+    goToHome();
+  }
 
   const changeVisibilityHandler = (e) => {
     setVisibility(e);
@@ -120,9 +125,10 @@ export const Header = (props) => {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleContactUsClose} classes={{ root: classes.listItemClass }}>Contact us</MenuItem>
+        <MenuItem onClick={handleContactUsClose} classes={{ root: classes.listItemClass }}>Enroll now</MenuItem>
         <MenuItem onClick={handleAboutUsClose} classes={{ root: classes.listItemClass }}>About us</MenuItem>
-        <MenuItem onClick={handleOurContentClose} classes={{ root: classes.listItemClass }}>Our programs</MenuItem>
+        <MenuItem onClick={handleOurCoursesClose} classes={{ root: classes.listItemClass }}>Our courses</MenuItem>
+        <MenuItem onClick={handleHomeClose} classes={{ root: classes.listItemClass }}>Home</MenuItem>
       </Menu>
     );
   }
@@ -131,36 +137,38 @@ export const Header = (props) => {
     history.push('/about-us');
   };
 
-  const scrollToOurContent = () => {
-    scroller.scrollTo('/what-we-do', {
-      duration: 3000,
-      delay: 100,
-      smooth: 'easeInOutQuart'
-    })
-  };
+  const goToHome = () => {
+    history.push('/home');
+  }
 
-  const scrollToContactUs = () => {
+  const goToContactUs = () => {
     history.push('/free-demo-registration');
   };
+
+  const goToOurCourses = () => {
+    history.push('/#ourcourses');
+  }
 
   const renderDesktopMenu = () => {
     return (
       <div className={classes.sectionDesktop}>
         <Grid item xs={3}>
-          <Typography variant="h6" className={classes.desktopMenu}></Typography>
+          <Typography variant="subtitle1" className={classes.desktopMenu} onClick={() => goToHome()}>Home</Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="h6">
-            <Link to="" className={classes.desktopMenu} onClick={() => scrollToContactUs()}>Contact us</Link>
+          <Typography variant="subtitle1">
+            <Link to="" className={classes.desktopMenu} onClick={() => goToContactUs()}>Enroll now</Link>
           </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="h6">
+          <Typography variant="subtitle1">
             <Link to="" className={classes.desktopMenu} onClick={() => goToAboutUs()}>About us</Link>
           </Typography>
         </Grid>
         <Grid item xs={3}>
-          <Typography variant="h6" className={classes.desktopMenu} onClick={() => scrollToOurContent()}>Our Programs</Typography>
+          <Typography variant="subtitle1" className={classes.desktopMenu} onClick={() => goToOurCourses()}>
+            Our courses
+          </Typography>
         </Grid>
       </div>
     )
@@ -184,9 +192,7 @@ export const Header = (props) => {
               <MenuIcon />
             </IconButton>
           }
-          {
-            isDesktop && renderDesktopMenu()
-          }
+          {isDesktop && renderDesktopMenu()}
         </Grid>
         {renderMobileMenu()}
       </Toolbar>

@@ -38,9 +38,17 @@ export const ConnectWithUs = (props) => {
       justifyContent: !shouldWrap && 'center'
     },
     connectDiv: {
-      marginLeft: '100px',
-      flex: shouldWrap ? "0 0 45%" : '100%',
+      marginLeft: isDesktop ? '100px' : '0',
+      flex: shouldWrap && isDesktop ? "0 0 45%" : '100%',
       textAlign: !shouldWrap && 'center',
+      marginTop : !isDesktop && '20px'
+    },
+    connectCard: {
+      padding:"20px",
+      boxShadow: !shouldWrap && 'none',
+      border: '1px solid #ffab00',
+      margin: !shouldWrap && '0 auto',
+      maxWidth: !shouldWrap && '40%'
     },
     "@keyframes fadeInUp": {
       "from": {
@@ -83,11 +91,11 @@ export const ConnectWithUs = (props) => {
     <div className={classes.connectDiv}>
       <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
         <>
-          <Typography variant={"h4"} className={isVisible ? classes.fadeInUp : ''}>
+          <Typography variant={"h5"} className={isVisible ? classes.fadeInUp : ''}>
             <span className={classes.blueColor}>Connect with us</span>
           </Typography>
           <br />
-          <Card style={{padding:"20px", boxShadow: !shouldWrap && 'none'}}>
+          <Card className={classes.connectCard}>
             <IconButton onClick={handleIGClick} size="medium" color="secondary">
               <InstagramIcon style={{ fontSize: 40 }} />
             </IconButton>
@@ -102,8 +110,11 @@ export const ConnectWithUs = (props) => {
             </IconButton>
             <div className={classes.whatsappDiv}>
               <WhatsAppIcon style={{ color: green[500], fontSize: 40, marginRight: '20px' }}/>
-              <Typography variant={"h6"} className={isVisible ? classes.fadeInUp : ''}>
-                <span>+1(213)-509-7049&nbsp;&nbsp;/&nbsp;&nbsp;+1(646)-824-1790</span>
+              <Typography variant={"subtitle1"} className={isVisible ? classes.fadeInUp : ''}>
+                <div></div>
+                <div></div>
+                { isDesktop && <span>+1(213)-509-7049&nbsp;&nbsp;/&nbsp;&nbsp;+1(646)-824-1790</span>}
+                {!isDesktop && <span>+1(213)-509-7049<br/>+1(646)-824-1790</span>}
               </Typography>
             </div>
             <div className={classes.whatsappDiv}>

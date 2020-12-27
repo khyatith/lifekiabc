@@ -30,7 +30,7 @@ function App() {
       <Router>
         <ScrollTop>
           <Switch>
-            <Route path="/time-management">
+            <Route path="/productivity-enhancer">
               <TimeManagement isDesktop={isDesktop} />
             </Route>
             <Route path="/communication-skills">
@@ -44,6 +44,12 @@ function App() {
             </Route>
             <Route path="/about-us">
               <AboutUs isDesktop={isDesktop} />
+            </Route>
+            <Route path="/home">
+              <HomePage isDesktop={isDesktop}/>
+            </Route>
+            <Route path="/#ourcourses">
+              <HomePage isDesktop={isDesktop}/>
             </Route>
             <Route path="/">
               <HomePage isDesktop={isDesktop}/>

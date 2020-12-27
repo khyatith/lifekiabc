@@ -17,19 +17,16 @@ import FormGroup from '@material-ui/core/FormGroup';
 
 const ALL_COURSES = [{
   value: "1",
-  name: 'Super Leaders Program (10 - 14 years)',
+  name: 'Super Leaders Program',
 }, {
   value: "2",
-  name: 'Super Leaders Program (15 - 19 years)',
+  name: 'Productivity Enhancer course',
 }, {
   value: "3",
-  name: 'Super Achievers Bootcamp (15 - 17 years)',
+  name: 'Confident Orator course',
 }, {
   value: "4",
-  name: 'Time Management',
-}, {
-  value: "5",
-  name: 'Public Speaking & Confidence Building',
+  name: 'S.M.A.R.T. Executor course',
 }];
 
 export const FreeDemoRegistration = (props) => {
@@ -66,7 +63,7 @@ export const FreeDemoRegistration = (props) => {
       paddingTop: '50px',
       textAlign: 'center',
       '& .MuiTextField-root': {
-        width: isDesktop ? '500px' : '100%',
+        width: isDesktop ? '500px' : '90%',
         marginBottom: '50px'
       }
     },
@@ -98,7 +95,8 @@ export const FreeDemoRegistration = (props) => {
       border: '1px solid #cccccc',
       borderRadius: '20px',
       padding: '10px',
-      marginBottom:'50px'
+      margin: isDesktop ? '0px 0px 50px 0px' : '0px auto 50px auto',
+      width: !isDesktop && '90%',
     }
   }));
 
@@ -162,20 +160,21 @@ export const FreeDemoRegistration = (props) => {
 
   const getSelectedCourseNames = () => {
     const result = [];
+    console.log('checkedCourses', checkedCourses);
     for(let i=0; i < ALL_COURSES.length; i++) {
       for (let j=0; j < checkedCourses.length; j++) {
-        if (checkedCourses[i] === ALL_COURSES[j].value) {
-          result.push(ALL_COURSES[j].name);
+        if (checkedCourses[j] === ALL_COURSES[i].value) {
+          result.push(ALL_COURSES[i].name);
         }
       }
     }
-    return result;
+    return result.join(',');
   }
 
   const sendMessage = async (event) => {
     event.preventDefault();
     if (!isValidUserDetails()) {
-      setEmailValidated(false);
+      return setEmailValidated(false);
     }
 
     const selectedCourseNames = getSelectedCourseNames();
@@ -230,35 +229,21 @@ export const FreeDemoRegistration = (props) => {
   return (
     <>
       <Header isDesktop={isDesktop}/>
-      {failure && alertOpen && <CustomAlert severity="error" message="There was a problem sending your message.Please try again later or contact us at lifekiabc.com" />}
-      {success && alertOpen && <CustomAlert severity="success" message="Thank you for contacting us.We will get back to you soon" />}
       <div className={classes.contactUsFormContainer}>
         <form noValidate autoComplete="off">
           <Typography variant={"h6"}>
             Please enter your details and we will get back to you right away!
           </Typography>
+          <Typography variant={"h6"}>
+            All courses are for 8 - 14 years old
+          </Typography>
           <br/>
           <br/>
           <TextField error={!emailValidated} required id="parentName" label="Parent's Name" value={parentName} onChange={handleParentNameChange}/>
           <TextField error={!emailValidated} required id="childName" label="Child's Name" value={childName} onChange={handleChildNameChange}/>
-          <FormControl className={classes.formControl}>
-            <InputLabel htmlFor="age-native-simple">Child's Age</InputLabel>
-              <Select
-                native
-                value={childAge}
-                onChange={handleChildAgeChange}
-                inputProps={{
-                  name: 'age',
-                  id: 'age-native-simple',
-                }}
-              >
-                <option aria-label="None" value="" />
-                <option value={10-14}>10 - 14</option>
-                <option value={15-18}> 15 - 19</option>
-              </Select>
-          </FormControl>
+          <TextField error={!emailValidated} required id="childAge" label="Child's Age" value={childAge} onChange={handleChildAgeChange} type="number"/>
           <TextField error={!emailValidated} required id="email" label="Email" value={email} onChange={handleEmailChange}/>
-          <TextField error={!emailValidated} id="phone" label="Phone Number" value={phone} onChange={handlePhoneChange}/>
+          <TextField id="phone" label="Phone Number" value={phone} onChange={handlePhoneChange}/>
           <div className={classes.checkboxWrapper}>
               {renderAvailableCourses()}
           </div>
@@ -272,6 +257,8 @@ export const FreeDemoRegistration = (props) => {
             onChange={handleMessageChange}
           />
         </form>
+        {failure && alertOpen && <CustomAlert severity="error" message="There was a problem sending your message.Please try again later or contact us at lifekiabc.com" />}
+        {success && alertOpen && <CustomAlert severity="success" message="Thank you for contacting us.We have got your details.We will get back to you soon to set up a free demo." />}
         <Button variant="contained" className={classes.contactUsBtn} onClick={sendMessage} component="h2">
           Submit
         </Button>

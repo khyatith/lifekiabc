@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import VisibilitySensor from 'react-visibility-sensor';
 import Paper from '@material-ui/core/Paper';
 import { useHistory } from "react-router-dom";
-import { INDIVIDUAL_COURSES } from '../data/programs';
+import { MINI_COURSES, LONG_TERM_PROGRAMS } from '../data/programs';
 
 export const Programs = (props) => {
   const { isDesktop } = props;
@@ -30,12 +30,22 @@ export const Programs = (props) => {
       cursor: 'pointer',
     },
     courseTitle: {
-      height: '40px'
+      height: '20px'
+    },
+    marginTopLarge: {
+      marginTop: '50px'
+    },
+    imgFit: {
+      objectFit: 'contain'
+    },
+    coursesGrid: {
+      margin: '15px 24px 0px 24px',
+      padding: '0 !important'
     },
     modules: {
       textAlign: 'center',
-      backgroundColor: '#ebf5ff',
-      height: '200px',
+      backgroundColor: '#ffffff',
+      height: '150px',
       cursor: 'pointer',
       '&:hover': {
         opacity: '0.5',
@@ -58,21 +68,21 @@ export const Programs = (props) => {
   };
 
   const renderCourseDetail = (e, course) => {
-    const { name, image, link } = course;
+    const { name, image, link, type } = course;
     history.push({
       pathname: `/course/${link}`,
-      state: { name }
-  });
+      state: { name, type }
+    });
   }
 
-  const renderIndividualCourses = () => {
-    return INDIVIDUAL_COURSES.map((course, i) => {
+  const renderCourses = (CoursesArray) => {
+    return CoursesArray.map((course, i) => {
       const { name, image, link } = course;
       return (
-        <Grid key={i} value={name} item xs={12} sm={3} onClick={(e) => renderCourseDetail(e, course)}>
+        <Grid key={i} value={name} item xs={12} sm={3} onClick={(e) => renderCourseDetail(e, course)} className={!isDesktop && classes.coursesGrid}>
           <h3 className={classes.courseTitle}>{name}</h3>
           <Paper className={classes.modules}>
-            <CardMedia component="img" image={image} height="100%" />
+            <CardMedia className={classes.imgFit} component="img" image={image} height="100%" />
           </Paper>
         </Grid>
       )
@@ -86,13 +96,25 @@ export const Programs = (props) => {
       <div>
         <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
           <>
-            <Typography variant={"h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-              <span className={classes.blueColor}>Our Courses</span>
-            </Typography>
-            <div className={classes.ourprograms}>
-              <Grid container spacing={6}>
-                {renderIndividualCourses()}
-              </Grid>
+            <div>
+              <Typography variant={"h5"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+                <span className={classes.blueColor}>Mini-courses</span>
+              </Typography>
+              <div className={classes.ourprograms}>
+                <Grid container spacing={6}>
+                  {renderCourses(MINI_COURSES)}
+                </Grid>
+              </div>
+            </div>
+            <div className={classes.marginTopLarge}>
+              <Typography variant={"h5"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+                <span className={classes.blueColor}>Comprehensive courses</span>
+              </Typography>
+              <div className={classes.ourprograms}>
+                <Grid container spacing={6}>
+                  {renderCourses(LONG_TERM_PROGRAMS)}
+                </Grid>
+              </div>
             </div>
           </>
         </VisibilitySensor>

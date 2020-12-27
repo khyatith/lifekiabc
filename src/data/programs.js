@@ -1,34 +1,82 @@
-import timeManagement from '../assets/courses/time-management.png';
-import communicationSkills from '../assets/communicationSkills.png';
-import leadershipSkills from '../assets/leadershipSkills.png';
-import publicSpeaking from '../assets/publicSpeaking.jpg';
-import stressManagement from '../assets/stressManagement.jpg';
-import superAchievers from '../assets/superAchievers.jpeg';
+import productivityEnhancer from '../assets/courses/productivity-enhancer.png';
+import superLeaders from '../assets/courses/super-leaders.png';
+import confidentOrator from '../assets/courses/confident-orator.png';
+import smartExecutor from '../assets/courses/smart-executor.png';
 
-export const INDIVIDUAL_COURSES = [{
-  name: 'Time Management',
-  link: 'time-management',
-  description: "This one of a kind time management course will help students to think about time in a new way. It will teach them how to prioritize time in their day equally between their studies and hobbies. It will also take them over some easy to implement techniques for avoiding procrastination like pomodoro technique. Our interactive curriculum will help students reflect on how they can improve upon their time management skills and what is most important to them in their day.",
-  image: timeManagement,
+export const MINI_COURSES = [{
+  type: "course",
+  name: 'Productivity Enhancer',
+  link: 'productivity-enhancer',
+  description: "This course exposes students to various time management techniques and methods that are a proven success. The goal is to equip them with the skill set and tools they need to reflect on their current time management habits, understand the areas that need improving, and apply everything they learnt to enable them to better manage their time.",
+  image: productivityEnhancer,
+  catchPhrase: "Encouraging productive habits",
+  ageGroup: '8 - 14 years',
+  benefits: [
+    "Manage interruptions, overcome distractions and boost productivity",
+    "Lower anxiety and stress",
+    "Achieve a healthy balance between academic and social life",
+    "Higher degree of focus, commitment, and concentration"
+  ],
+  curriculum: [
+      "Concept of time management and its benefits",
+      "Self reflection on current time management",
+      "Prioritization and tools for it",
+      "Avoiding procrastination and hacks for it",
+      "Pomodoro technique",
+      "Time blocking",
+    ]
 }, {
-  name: 'Communication Skills',
-  link: 'communication-skills',
-  image: communicationSkills
+  type: "course",
+  name: 'Confident Orator',
+  link: 'confident-orator',
+  description: "Our most popular course, this one focuses on imparting practical tips for effective public speaking and confidence building. The goal is to have significant enhancement of the students’ skills in these two areas, with plenty of engaging activities and individualized feedback on one recorded speech per student",
+  image: confidentOrator,
+  catchPhrase: "Creating confident orators",
+  ageGroup: '8 - 14 years',
+  benefits: [
+    "Improve interpersonal and formal communication",
+    "Speak confidently in varied academic and extra-curricular settings",
+    "Deliver effective classroom presentations",
+    "Feeling accomplished and overpower nervousness",
+  ],
+  curriculum: [
+    "Public speaking",
+    "Concept of public speaking and its benefits",
+    "Tips on public speaking",
+    "How to practice public speaking",
+    "Feedback on one speech video recording per student"
+  ]
 }, {
-  name: 'Public Speaking & Confidence Building',
-  link: 'public-speaking',
-  image: publicSpeaking
-}, {
-  name: 'Stress Management',
-  link: 'stress-management',
-  image: stressManagement
-}, {
+  type: "course",
+  name: 'S.M.A.R.T. Executor',
+  link: 'smart-executor',
+  description: "This 2 session course focuses on teaching children the power and importance of goal setting. Students are taught specific techniques for identifying and converting their goals into S.M.A.R.T. goals. We then work through breaking them into smaller actionable items and teach them meaningful practical techniques that facilitate accomplishment.",
+  image: smartExecutor,
+  catchPhrase: "Discovering untapped potential",
+  ageGroup: "8 - 14 years",
+  benefits: [
+    "S.M.A.R.T. goal setting becomes a long lasting positive habit",
+    "Boost productivity, decision making and long-term vision",
+    "Acknowledge irrational beliefs about failures",
+    "Effectively maneuver life’s challenges"
+  ],
+  curriculum: [
+    "Self-reflection on current goal-setting habits",
+    "What are S.M.A.R.T. goals",
+    "How to create S.M.A.R.T. goals",
+    "How to achieve S.M.A.R.T. goals",
+    "Retrospective analysis of own goals"
+  ]
+}];
+
+export const LONG_TERM_PROGRAMS = [{
+  type: "program",
   name: 'Super Leaders Program',
   link: 'super-leaders',
-  image: leadershipSkills,
+  image: superLeaders,
   catchPhrase: 'Creating leaders of tomorrow',
   ctaText: 'Request a free demo',
-  ageGroup: '10 - 18 years',
+  ageGroup: '8 - 14 years',
   description: "Super leaders program offered by Life ki ABC is one of its kind life skills program for teens and pre-teens that builds leadership and ownership skills in students. Through our engaging curriculum, we aim to ignite young minds to learn about what leadership means and we teach them specific techniques that they can implement to become a leader in their own lives. We believe in inculcating long lasting positive habits and to promote the holistic development of students by equipping them with the skills and tools they need for success - empowering them to achieve their full potential in life.",
   benefits: [
     "Higher degree of focus, commitment, and concentration",
@@ -87,8 +135,4 @@ export const INDIVIDUAL_COURSES = [{
     "Techniques for stress reduction"
   ]
   }]
-}, {
-  name: 'Super Achievers Program',
-  link: 'super-achievers',
-  image: superAchievers
 }];
