@@ -66,6 +66,9 @@ export const InfoPanel = (props) => {
       margin: isDesktop && "40px 40px 40px 10px",
       marginTop: !isDesktop && '20px',
       maxWidth: 345,
+      "& .MuiButtonBase-root": {
+        display: "block"
+      }
     },
     "@keyframes fadeInUp": {
       "from": {
@@ -91,27 +94,29 @@ export const InfoPanel = (props) => {
   const renderContent = (data) => {
     return data.map((content, index) => {
       const { image, text, title } = content;
-      return (<Slide in={isVisible} direction="left" timeout={{enter: 1000}} mountOnEnter unmountOnExit={false} key={index}>
-        <Card className={classes.whyUsCard}>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              alt="Contemplative Reptile"
-              height="200"
-              image={image}
-              title="Contemplative Reptile"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
-                {title}
-              </Typography>
-              <Typography variant="body2" component="p">
-                {text}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Slide>);
+      return (
+        <Slide in={isVisible} direction="left" timeout={{enter: 1000}} mountOnEnter unmountOnExit={false} key={index}>
+          <Card className={classes.whyUsCard}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                alt="Contemplative Reptile"
+                height="200"
+                image={image}
+                title="Contemplative Reptile"
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {title}
+                </Typography>
+                <Typography variant="body2" component="p">
+                  {text}
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Slide>
+      );
     });
   };
 

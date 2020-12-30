@@ -205,9 +205,9 @@ export const FreeDemoRegistration = (props) => {
 
   const renderAvailableCourses = () => {
     return (
-      ALL_COURSES.map((course) => {
+      ALL_COURSES.map((course, index) => {
           const { value,name } = course;
-          return <FormGroup>
+          return <FormGroup key={index}>
             <FormControlLabel
             control={<Checkbox
               checked ={checkedCourses.includes(value)}
