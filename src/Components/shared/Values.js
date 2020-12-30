@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import VisibilitySensor from 'react-visibility-sensor';
+import Box from '@material-ui/core/Box';
 
 export const Values = (props) => {
   const { isDesktop } = props;
@@ -11,7 +12,6 @@ export const Values = (props) => {
     planContainer: {
       display: 'block',
       margin: '20px',
-      backgroundColor: '#ebf5ff',
       //textAlign: 'center',
       padding: '20px'
     },
@@ -47,9 +47,11 @@ export const Values = (props) => {
     <div className={classes.planContainer}>
       <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
         <Typography variant={"h5"} className={isVisible ? classes.fadeInUp : ''}>
-          <span className={classes.blueColor}>Values we stand for</span>
+          <Box fontWeight="fontWeightBold">
+            <span className={classes.blueColor}>Values we stand for</span>
+          </Box>
           <p className={classes.valuestext}>Our values are deeply interwoven into our vision, purpose and our fresh approach to imagining and implementing life skills solution to the current education system. Our values guide our actions and are shared by our community of partners.</p>
-          <div style={{textAlign: 'center', fontSize: '15px'}}>
+          <div style={{textAlign: 'center', fontSize: '20px', fontWeight: 'bold'}}>
             <p>Integrity</p>
             <p>Innovation</p>
             <p>Collaboration</p>

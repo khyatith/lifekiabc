@@ -1,7 +1,5 @@
 import React from 'react';
 import { HomePage } from './Components/HomePage';
-import { TimeManagement } from './Components/modules/TimeManagement';
-import { CommunicationSkills } from './Components/modules/CommunicationSkills';
 import { FreeDemoRegistration } from './Components/shared/FreeDemoRegistration.js';
 import { CourseDetail } from './Components/shared/CourseDetail';
 import ScrollTop from './Components/shared/ScrollToTop';
@@ -30,12 +28,6 @@ function App() {
       <Router>
         <ScrollTop>
           <Switch>
-            <Route path="/productivity-enhancer">
-              <TimeManagement isDesktop={isDesktop} />
-            </Route>
-            <Route path="/communication-skills">
-              <CommunicationSkills isDesktop={isDesktop} />
-            </Route>
             <Route path="/free-demo-registration">
               <FreeDemoRegistration isDesktop={isDesktop} />
             </Route>

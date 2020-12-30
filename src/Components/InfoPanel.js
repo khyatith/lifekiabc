@@ -7,6 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import Box from '@material-ui/core/Box';
 import pt3 from '../assets/pt3.jpg';
 import pt5 from '../assets/pt5.png';
 import pt9 from '../assets/pt9.jpg';
@@ -32,7 +33,7 @@ export const InfoPanel = (props) => {
       display: 'flex',
       flexWrap: !isDesktop && 'wrap',
       margin: isDesktop ? '50px 20px' : '50px 20px',
-      backgroundColor: '#dce0e5',
+      backgroundColor: '#fefee1',
       height: 'auto'
     },
     missionDiv: {
@@ -62,7 +63,7 @@ export const InfoPanel = (props) => {
     },
     whyUsCard: {
       display: 'inline-block',
-      margin: isDesktop && "40px",
+      margin: isDesktop && "40px 40px 40px 10px",
       marginTop: !isDesktop && '20px',
       maxWidth: 345,
     },
@@ -119,7 +120,9 @@ export const InfoPanel = (props) => {
       <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
         <div className={classes.missionDiv}>
           <Typography variant={"h5"} className={isVisible ? classes.fadeInUp : ''}>
-            <span className={classes.blueColor}>Our teaching philosophy</span>
+            <Box fontWeight="fontWeightBold">
+              <span className={classes.blueColor}>Our teaching philosophy</span>
+            </Box>
           </Typography>
           <div>
             {renderContent(WHY_US_PART1)}

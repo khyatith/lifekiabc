@@ -7,6 +7,7 @@ import VisibilitySensor from 'react-visibility-sensor';
 import Paper from '@material-ui/core/Paper';
 import { useHistory } from "react-router-dom";
 import { MINI_COURSES, LONG_TERM_PROGRAMS } from '../data/programs';
+import Box from '@material-ui/core/Box';
 
 export const Programs = (props) => {
   const { isDesktop } = props;
@@ -68,7 +69,7 @@ export const Programs = (props) => {
   };
 
   const renderCourseDetail = (e, course) => {
-    const { name, image, link, type } = course;
+    const { name, link, type } = course;
     history.push({
       pathname: `/course/${link}`,
       state: { name, type }
@@ -77,7 +78,7 @@ export const Programs = (props) => {
 
   const renderCourses = (CoursesArray) => {
     return CoursesArray.map((course, i) => {
-      const { name, image, link } = course;
+      const { name, image } = course;
       return (
         <Grid key={i} value={name} item xs={12} sm={3} onClick={(e) => renderCourseDetail(e, course)} className={!isDesktop && classes.coursesGrid}>
           <h3 className={classes.courseTitle}>{name}</h3>
@@ -98,7 +99,9 @@ export const Programs = (props) => {
           <>
             <div>
               <Typography variant={"h5"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-                <span className={classes.blueColor}>Mini-courses</span>
+                <Box fontWeight="fontWeightBold">
+                  <span className={classes.blueColor}>Mini-courses</span>
+                </Box>
               </Typography>
               <div className={classes.ourprograms}>
                 <Grid container spacing={6}>
@@ -108,7 +111,9 @@ export const Programs = (props) => {
             </div>
             <div className={classes.marginTopLarge}>
               <Typography variant={"h5"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-                <span className={classes.blueColor}>Comprehensive courses</span>
+                <Box fontWeight="fontWeightBold">
+                  <span className={classes.blueColor}>Comprehensive courses</span>
+                </Box>
               </Typography>
               <div className={classes.ourprograms}>
                 <Grid container spacing={6}>

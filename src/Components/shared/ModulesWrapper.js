@@ -19,7 +19,7 @@ export const ModulesWrapper = (props) => {
     },
     catchPhraseDiv: {
       width: '500px',
-      backgroundColor: '#fff5eb',
+      backgroundColor: '#fefee1',
       flex: isDesktop && '0 0 65%',
       height: !isDesktop &&'auto',
     },

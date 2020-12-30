@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useLocation } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
-import { Header } from './Header';
 import { Banner } from './Banner';
 import CardMedia from '@material-ui/core/CardMedia';
 import VisibilitySensor from 'react-visibility-sensor';
@@ -13,10 +12,10 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import { ConnectWithUs } from './ConnectWithUs';
+import Box from '@material-ui/core/Box';
 
 export const CourseDetail = (props) => {
   const { isDesktop } = props;
-  const [selectedCourseName, setSelectedCourseName] = useState('');
   const [isVisible, setVisibility] = useState(false);
   const [selectedCourseDetail, setSelectedCourseDetail] = useState({});
   const location = useLocation();
@@ -25,7 +24,6 @@ export const CourseDetail = (props) => {
     const name = location.state.name;
     const type = location.state.type;
     const dataSource = type === "course" ? MINI_COURSES : LONG_TERM_PROGRAMS
-    setSelectedCourseName(name);
     const courseDetail = dataSource.filter(course => course.name === name)[0];
     setSelectedCourseDetail(courseDetail);
  }, [location]);
@@ -50,7 +48,7 @@ export const CourseDetail = (props) => {
       fontSize: isDesktop ? '1.5em' : '2em',
     },
     catchPhraseDiv: {
-      backgroundColor: '#fff5eb',
+      backgroundColor: '#fefee1',
       display: 'inline-block',
       float: 'left',
       height: isDesktop ? '300px' : '100%',
@@ -77,7 +75,7 @@ export const CourseDetail = (props) => {
       flexWrap: !isDesktop && 'wrap',
       margin: isDesktop ? '50px 20px' : '50px 20px',
       padding: '20px',
-      backgroundColor: '#dce0e5',
+      backgroundColor: '#fefee1',
       height: 'auto'
     },
     imgDiv: {
@@ -207,7 +205,9 @@ export const CourseDetail = (props) => {
           <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
             <>
               <Typography variant={"h6"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-                <span className={classes.blueColor}>What is {selectedCourseDetail.name} {selectedCourseDetail.type}</span>
+                <Box fontWeight="fontWeightBold">
+                  <span className={classes.blueColor}>What is {selectedCourseDetail.name} {selectedCourseDetail.type}</span>
+                </Box>
               </Typography>
               <p className={`${classes.fontSizeMd} ${isVisible ? classes.fadeInUp : ''}`}>{selectedCourseDetail.description}</p>
             </>
@@ -217,7 +217,9 @@ export const CourseDetail = (props) => {
       <div className={classes.courseBenefits}>
         <div>
           <Typography variant={"h6"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-            <span className={classes.blueColor}>Outcomes of {selectedCourseDetail.name} {selectedCourseDetail.type}</span>
+            <Box fontWeight="fontWeightBold">
+              <span className={classes.blueColor}>Outcomes of {selectedCourseDetail.name} {selectedCourseDetail.type}</span>
+            </Box>
           </Typography>
           {renderBenefits()}
         </div>
@@ -225,7 +227,9 @@ export const CourseDetail = (props) => {
       <div className={classes.courseCurriculum}>
         <div>
           <Typography variant={"h6"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-            <span className={classes.blueColor}>Curriculum</span>
+            <Box fontWeight="fontWeightBold">
+              <span className={classes.blueColor}>Curriculum</span>
+            </Box>
           </Typography>
           {renderCurriculum()}
         </div>

@@ -6,14 +6,15 @@ import Grid from '@material-ui/core/Grid';
 import CardMedia from '@material-ui/core/CardMedia';
 import Dizikid from '../assets/partners/dizikid-logo.png';
 import PurplePheonix from '../assets/partners/purple-pheonix-logo.jpg';
+import BhashaSagar from '../assets/partners/bhasha-sagar-logo.jpeg';
 import Card from '@material-ui/core/Card';
-import { useHistory } from "react-router-dom";
-import { ConnectWithUs } from './shared/ConnectWithUs'
-;
+import { ConnectWithUs } from './shared/ConnectWithUs';
+import Box from '@material-ui/core/Box';
+
+
 export const Partners = (props) => {
   const { isDesktop } = props;
   const [isVisible, setVisibility] = useState(false);
-  const history = useHistory();
 
   const useStyles = makeStyles(() => ({
     container: {
@@ -33,6 +34,9 @@ export const Partners = (props) => {
       height: !isDesktop && '200px',
       objectFit: 'contain',
       margin: isDesktop ? '30px' : '20px auto'
+    },
+    marginSm : {
+      marginRight: '20px'
     },
     // vl: {
     //   borderLeft: '1px solid #b0b9c4',
@@ -79,17 +83,22 @@ export const Partners = (props) => {
       <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
         <>
           <div className={classes.partnerDiv}>
-            <Typography variant={"h5"} className={isVisible ? classes.fadeInUp : ''} style={{margin: '0px 0px 30px 0px'}}>
-              <span className={classes.blueColor}>Our partners</span>
+            <Typography variant={"h5"} className={isVisible ? classes.fadeInUp : ''} style={{margin: '0px 0px 20px 0px'}}>
+              <Box fontWeight="fontWeightBold">
+                <span className={classes.blueColor}>Our partners</span>
+              </Box>
             </Typography>
-            <div style={{maxWidtg: '400px'}}>
+            <div>
             <Card style={{border: '1px solid #ffab00'}}>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={3} className={classes.marginSm}>
                   <CardMedia component="img" image={Dizikid} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid item xs={12} sm={3} className={classes.marginSm}>
                   <CardMedia component="img" image={PurplePheonix} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>
+                </Grid>
+                <Grid item xs={12} sm={3} className={classes.marginSm}>
+                  <CardMedia component="img" image={BhashaSagar} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>
                 </Grid>
               </Grid>
             </Card>

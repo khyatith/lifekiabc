@@ -12,6 +12,7 @@ import Typography from '@material-ui/core/Typography';
 import { Testimonials } from './Testimonials';
 import { Partners } from './Partners';
 import { useLocation } from "react-router-dom";
+import Box from '@material-ui/core/Box';
 
 export const HomePage = (props) => {
   const location = useLocation();
@@ -36,7 +37,7 @@ export const HomePage = (props) => {
     },
     catchPhraseDiv: {
       //width: '500px',
-      backgroundColor: '#fff5eb',
+      backgroundColor: '#fefee1',
       display: 'inline-block',
       // '-webkit-box-flex': isDesktop && '0 0 45%',
       // '-ms-flex': isDesktop && '0 0 45%',
@@ -53,6 +54,14 @@ export const HomePage = (props) => {
       position: 'static',
       display: 'inline-block',
       //height: isDesktop ? '500px' : 'auto',
+    },
+    kpidiv: {
+      margin: '30px auto',
+      padding: '20px',
+      display: 'block',
+      backgroundColor: '#fefee1',
+      textAlign: 'center',
+      border: '1px solid #ffab00'
     },
     "@keyframes fadeInUp": {
       "from": {
@@ -98,6 +107,13 @@ export const HomePage = (props) => {
           </div>
         </VisibilitySensor>
       </Banner>
+      <Grid item xs={12} md={6} className={classes.kpidiv}>
+        <Typography variant={"h5"} className={`${isVisible ? classes.fadeInUp : ''}`}> 
+          <Box fontWeight="fontWeightBold">
+            100+ hours of life skills taught across 5+ countries
+          </Box>
+        </Typography>
+      </Grid>
       <div id="ourcourses">
         <Programs isDesktop={isDesktop} />
       </div>

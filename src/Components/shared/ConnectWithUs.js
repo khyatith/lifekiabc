@@ -12,6 +12,7 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import Link from '@material-ui/core/Link';
 import { useHistory } from "react-router-dom";
 import VisibilitySensor from 'react-visibility-sensor';
+import Box from '@material-ui/core/Box';
 
 export const ConnectWithUs = (props) => {
 
@@ -92,7 +93,9 @@ export const ConnectWithUs = (props) => {
       <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
         <>
           <Typography variant={"h5"} className={isVisible ? classes.fadeInUp : ''}>
-            <span className={classes.blueColor}>Connect with us</span>
+            <Box fontWeight="fontWeightBold">
+              <span className={classes.blueColor}>Connect with us</span>
+            </Box>
           </Typography>
           <br />
           <Card className={classes.connectCard}>
@@ -110,9 +113,7 @@ export const ConnectWithUs = (props) => {
             </IconButton>
             <div className={classes.whatsappDiv}>
               <WhatsAppIcon style={{ color: green[500], fontSize: 40, marginRight: '20px' }}/>
-              <Typography variant={"subtitle1"} className={isVisible ? classes.fadeInUp : ''}>
-                <div></div>
-                <div></div>
+              <Typography variant={"subtitle1"} style={{marginTop: '5px'}} className={isVisible ? classes.fadeInUp : ''}>
                 { isDesktop && <span>+1(213)-509-7049&nbsp;&nbsp;/&nbsp;&nbsp;+1(646)-824-1790</span>}
                 {!isDesktop && <span>+1(213)-509-7049<br/>+1(646)-824-1790</span>}
               </Typography>

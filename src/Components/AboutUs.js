@@ -9,6 +9,7 @@ import ShrutiKedia from '../assets/aboutus/ShrutiKedia.jpg';
 import CardMedia from '@material-ui/core/CardMedia';
 import { Values } from './shared/Values';
 import { Partners } from './Partners';
+import Box from '@material-ui/core/Box';
 
 export const AboutUs = (props) => {
   const { isDesktop } = props;
@@ -34,7 +35,7 @@ export const AboutUs = (props) => {
       flex: 1,
       padding: !isDesktop ? '10px 0px 0px 10px' : '20px 20px',
       height: 'auto',
-      backgroundColor: '#dce0e5',
+      backgroundColor: '#fefee1',
       margin: '20px'
     },
     aboutUsText: {
@@ -44,7 +45,7 @@ export const AboutUs = (props) => {
     },
     catchPhraseDiv: {
       //width: '500px',
-      backgroundColor: '#fff5eb',
+      backgroundColor: '#fefee1',
       display: 'inline-block',
       // '-webkit-box-flex': isDesktop && '0 0 45%',
       // '-ms-flex': isDesktop && '0 0 45%',
@@ -130,7 +131,9 @@ export const AboutUs = (props) => {
         </Banner>
         <div className={classes.aboutUsDiv}>
           <Typography variant={ "h5"} className={isVisible && isDesktop ? classes.fadeInUp : ''}>
-            <span className={classes.blueColor}>Our story</span>
+            <Box fontWeight="fontWeightBold">
+              <span className={classes.blueColor}>Our story</span>
+            </Box>
             <p className={classes.aboutUsText}>
             Khyati and Shruti grew up in India. When they graduated from schools and stepped into the real world, they noticed that while schools had trained them in academic education, they were still untrained in the real world skills that are required to succeed and be happy in life. 
             It deeply disturbed them that the school education does not provide holistic development of students. They wanted to ensure that young students are empowered to become leaders of tomorrow and should possess the right skillset and guidance to be happy and successful in life. Hence, Life Ki ABC was born!

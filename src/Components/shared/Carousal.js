@@ -15,21 +15,20 @@ export const Carousal = (props) => {
       color: `${textColor}`
     }
   }));
-  
-  const Item = (itemProps) => {
-
-    return (
-      <Paper className={classes.carousalDiv}>
-        <p>{itemProps.item.description}</p>
-      </Paper>
-    )
-  }
 
   const classes = useStyles();
 
   return(
-    <Carousel animation={"slide"} timeout={1000} interval={10000}>
-      { items.map( item => <Item item={item} /> ) }
-    </Carousel>
+    <>
+      <Carousel animation={"slide"} timeout={1000} interval={10000}>
+        { items.map(item => {
+          return (
+            <Paper className={classes.carousalDiv}>
+              <p>{item.description}</p>
+            </Paper>
+          )
+        })}
+      </Carousel>
+    </>
   )
 }
