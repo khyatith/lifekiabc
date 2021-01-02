@@ -45,7 +45,7 @@ export const CourseDetail = (props) => {
       color: '#000000',
       lineHeight: '1.5em',
       fontWeight: 'bold',
-      fontSize: isDesktop ? '1.5em' : '2em',
+      fontSize: '1.5em',
     },
     catchPhraseDiv: {
       backgroundColor: '#fefee1',
@@ -63,7 +63,7 @@ export const CourseDetail = (props) => {
       objectFit: 'contain'
     },
     courseDescription: {
-      display: 'flex',
+      display: !isDesktop && 'flex',
       margin: '20px',
     },
     courseCurriculum: {
@@ -88,7 +88,7 @@ export const CourseDetail = (props) => {
       color: '#3299CC'
     },
     fontSizeMd: {
-      fontSize: '20px',
+      fontSize: '15px',
       lineHeight: '1.4'
     },
     bold: {
@@ -96,11 +96,14 @@ export const CourseDetail = (props) => {
     },
     curriculumCard: {
       display: 'inline-block',
-      margin: "20px",
-      width: 345,
-      height: '300px',
+      margin: isDesktop ? "20px" : "20px 0px 20px 0px" ,
+      width: isDesktop ? 345 : '90%',
+      height: isDesktop ? '300px' : 'auto',
       padding: '10px',
-      border: '2px solid #fbcd4c'
+      border: '2px solid #fbcd4c',
+      '& .MuiButtonBase-root': {
+        display: 'block'
+      }
     },
     "@keyframes fadeInUp": {
       "from": {
@@ -169,7 +172,7 @@ export const CourseDetail = (props) => {
           return (
           <ul>
             <li>
-              <p style={{ fontSize: '20px'}} className={`${isVisible ? classes.fadeInUp : ''}`}>{benefit}</p>
+              <p style={{ fontSize: '15px'}} className={`${isVisible ? classes.fadeInUp : ''}`}>{benefit}</p>
             </li>
           </ul>
         )
@@ -184,9 +187,6 @@ export const CourseDetail = (props) => {
       <Banner isDesktop={isDesktop}>
         <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
           <div className={classes.container}>
-            <Grid item xs={12} md={8} className={classes.imgDiv}>
-              <CardMedia component="img" image={selectedCourseDetail.image} className={classes.media1} height={isDesktop ? '300px' : '100%'} width={'200px'}/>
-            </Grid>
             <Grid item xs={12} md={4} className={classes.catchPhraseDiv}>
               <div className={classes.catchPhrase}>
                 <Typography variant={"h6"} className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}` }>
@@ -194,8 +194,12 @@ export const CourseDetail = (props) => {
                   <br/>
                   {`(${selectedCourseDetail.ageGroup})`}
                 </Typography>
+                <h3>&#8377;{selectedCourseDetail.price}</h3>
               </div>
               <ContactUsButton />
+            </Grid>
+            <Grid item xs={12} md={8} className={classes.imgDiv}>
+              <CardMedia component="img" image={selectedCourseDetail.image} className={classes.media1} height={isDesktop ? '300px' : '100%'} width={'200px'}/>
             </Grid>
           </div>
         </VisibilitySensor>
@@ -234,7 +238,7 @@ export const CourseDetail = (props) => {
           {renderCurriculum()}
         </div>
       </div>
-      <ConnectWithUs isDesktop={isDesktop} shouldWrap={false} />
+      <ConnectWithUs isDesktop={isDesktop} shouldWrap={!isDesktop} />
     </>
   );
 }

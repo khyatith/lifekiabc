@@ -32,7 +32,7 @@ export const HomePage = (props) => {
     missionStmt1: {
       color: '#000000',
       fontWeight: 'bold',
-      fontSize: '2em',
+      fontSize: isDesktop ? '2em' : '1.5em',
       lineHeight: '1.5em'
     },
     catchPhraseDiv: {
@@ -59,9 +59,9 @@ export const HomePage = (props) => {
       margin: '30px auto',
       padding: '20px',
       display: 'block',
-      backgroundColor: '#fefee1',
+      //backgroundColor: '#fefee1',
       textAlign: 'center',
-      border: '1px solid #ffab00'
+      color: '#990000',
     },
     "@keyframes fadeInUp": {
       "from": {
@@ -96,7 +96,7 @@ export const HomePage = (props) => {
             <Grid item xs={12} md={4} className={classes.catchPhraseDiv}>
               <div className={classes.catchPhrase}>
                 <Typography variant={"h4"} className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}`}>
-                  Application-centric <br/>life skills development
+                  Application-oriented <br/>life skills development
                 </Typography>
               </div>
               <ContactUsButton />
@@ -107,8 +107,8 @@ export const HomePage = (props) => {
           </div>
         </VisibilitySensor>
       </Banner>
-      <Grid item xs={12} md={6} className={classes.kpidiv}>
-        <Typography variant={"h5"} className={`${isVisible ? classes.fadeInUp : ''}`}> 
+      <Grid item xs={12} md={5} className={classes.kpidiv}>
+        <Typography variant={isDesktop ? "h4" : "h5"} className={`${isVisible ? classes.fadeInUp : ''}`}> 
           <Box fontWeight="fontWeightBold">
             100+ hours of life skills taught across 5+ countries
           </Box>

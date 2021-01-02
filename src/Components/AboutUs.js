@@ -135,8 +135,7 @@ export const AboutUs = (props) => {
               <span className={classes.blueColor}>Our story</span>
             </Box>
             <p className={classes.aboutUsText}>
-            Khyati and Shruti grew up in India. When they graduated from schools and stepped into the real world, they noticed that while schools had trained them in academic education, they were still untrained in the real world skills that are required to succeed and be happy in life. 
-            It deeply disturbed them that the school education does not provide holistic development of students. They wanted to ensure that young students are empowered to become leaders of tomorrow and should possess the right skillset and guidance to be happy and successful in life. Hence, Life Ki ABC was born!
+            We both grew up in India and had the opportunity to pursue studies in India and the US. Even though we graduated from completely different academic areas, we both noticed the same thing on entering the real world -  while schools had provided us with formal academic education, our holistic development had not been prioritized throughout our educational history. We had not been trained in the real world skills that are required to succeed and be happy in life, and realized this was still the case with the children in schools today. Our passion for bringing a transformative wave in the life of students led to the creation of Life ki ABC! We go beyond degrees and qualifications to provide the essential life skills needed to achieve meaning and well-being in personal life, and success in professional endeavors.
             </p>
           </Typography>
         </div>

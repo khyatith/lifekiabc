@@ -229,7 +229,7 @@ export const FreeDemoRegistration = (props) => {
       <div className={classes.contactUsFormContainer}>
         <form noValidate autoComplete="off">
           <Typography variant={"h6"}>
-            Please enter your details and we will get back to you right away!
+            Please enter your details and we will get back to you!
           </Typography>
           <Typography variant={"h6"}>
             All courses are for 8 - 14 years old

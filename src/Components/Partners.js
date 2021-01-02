@@ -89,7 +89,7 @@ export const Partners = (props) => {
               </Box>
             </Typography>
             <div>
-            <Card style={{border: '1px solid #ffab00'}}>
+            <Card>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={3} className={classes.marginSm}>
                   <CardMedia component="img" image={Dizikid} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>

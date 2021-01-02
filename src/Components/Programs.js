@@ -78,10 +78,11 @@ export const Programs = (props) => {
 
   const renderCourses = (CoursesArray) => {
     return CoursesArray.map((course, i) => {
-      const { name, image } = course;
+      const { name, image, price } = course;
       return (
         <Grid key={i} value={name} item xs={12} sm={3} onClick={(e) => renderCourseDetail(e, course)} className={!isDesktop && classes.coursesGrid}>
           <h3 className={classes.courseTitle}>{name}</h3>
+          <p>&#8377;{price}</p>
           <Paper className={classes.modules}>
             <CardMedia className={classes.imgFit} component="img" image={image} height="100%" />
           </Paper>

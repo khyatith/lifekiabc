@@ -11,11 +11,13 @@ export const MINI_COURSES = [{
   image: productivityEnhancer,
   catchPhrase: "Encouraging productive habits",
   ageGroup: '8 - 14 years',
+  price: "649/-",
   benefits: [
-    "Manage interruptions, overcome distractions and boost productivity",
-    "Lower anxiety and stress",
-    "Achieve a healthy balance between academic and social life",
-    "Higher degree of focus, commitment, and concentration"
+    "Enhances academic performance",
+    "Supports faster goal achievement",
+    "Increases self-discipline",
+    "Strengthens opportunities for career growth",
+    "Elevates earning potential"
   ],
   curriculum: [
       "Concept of time management and its benefits",
@@ -33,6 +35,7 @@ export const MINI_COURSES = [{
   image: confidentOrator,
   catchPhrase: "Creating confident orators",
   ageGroup: '8 - 14 years',
+  price: "649/-",
   benefits: [
     "Improve interpersonal and formal communication",
     "Speak confidently in varied academic and extra-curricular settings",
@@ -54,11 +57,14 @@ export const MINI_COURSES = [{
   image: smartExecutor,
   catchPhrase: "Discovering untapped potential",
   ageGroup: "8 - 14 years",
+  price: "649/-",
   benefits: [
-    "S.M.A.R.T. goal setting becomes a long lasting positive habit",
-    "Boost productivity, decision making and long-term vision",
-    "Acknowledge irrational beliefs about failures",
-    "Effectively maneuver life’s challenges"
+    "Improves quality of work",
+    "Supports faster goal achievement",
+    "Builds leadership ability",
+    "Strengthens opportunities for career growth",
+    "Elevates earning potential"
+    
   ],
   curriculum: [
     "Self-reflection on current goal-setting habits",
@@ -70,26 +76,24 @@ export const MINI_COURSES = [{
 }];
 
 export const LONG_TERM_PROGRAMS = [{
-  type: "program",
-  name: 'Super Leaders Program',
+  type: 'Program',
+  name: 'Super Leaders',
   link: 'super-leaders',
   image: superLeaders,
   catchPhrase: 'Creating leaders of tomorrow',
   ctaText: 'Request a free demo',
   ageGroup: '8 - 14 years',
-  description: "Super leaders program offered by Life ki ABC is one of its kind life skills program for teens and pre-teens that builds leadership and ownership skills in students. Through our engaging curriculum, we aim to ignite young minds to learn about what leadership means and we teach them specific techniques that they can implement to become a leader in their own lives. We believe in inculcating long lasting positive habits and to promote the holistic development of students by equipping them with the skills and tools they need for success - empowering them to achieve their full potential in life.",
+  price: "3500/-",
+  description: "Super Leaders Program is an exclusive practicum-oriented life skills program for teens and pre-teens that builds leadership and ownership skills in students through individualized real-word projects. Every student is encouraged to undertake and complete a real-world project of their own choosing during the program - students decide what they want to learn, why they want to learn it, and together we figure out how they should be assessed. We then help them break down their bigger goals into milestones, manage their time with their other commitments and provide regular feedback on their milestones. The end result is strong embedding of their primary life skill of choice along with learning the practical applications of all the life skills taught in the program.",
   benefits: [
-    "Higher degree of focus, commitment, and concentration",
-    "Enhance self-awareness and emotional intelligence",
-    "Build a positive mindset and develop long-lasting positive habits",
-    "Cope with stress in a more mindful manner",
-    "Improve interpersonal and formal communication",
-    "Speak confidently in varied academic and extra-curricular settings",
-    "Build self-confidence and overpower nervousness",
-    "Enhance leadership skills, critical thinking and collaboration",
-    "Boost productivity, decision making and long-term vision",
-    "Acknowledge irrational beliefs about failures",
-    "Improve conflict resolution, negotiation and listening skills"
+    "Enhances academic performance",
+    "Improves quality of work",
+    "Supports faster goal achievement",
+    "Increases self-discipline",
+    "Avoids burnout",
+    "Builds leadership ability",
+    "Strengthens opportunities for career growth",
+    "Elevates earning potential"
   ],
   curriculum: [{
     title: "Time Management",

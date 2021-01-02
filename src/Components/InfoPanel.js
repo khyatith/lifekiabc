@@ -13,17 +13,17 @@ import pt5 from '../assets/pt5.png';
 import pt9 from '../assets/pt9.jpg';
 
 const WHY_US_PART1 = [{
-  title: "Student centered approach",
+  title: "Application-oriented",
+  text: "We focus on teaching students the application of learnt knowledge in the real world through pragmatic case discussions and application-based activities. This ‘learning in practice’ allows students to implement life skills in practical ways in their daily lives, resulting in the cultivation of applied thinking.",
+  image: pt9
+},{
+  title: "Student-centered",
   text: "Our interactive workshops are designed to let students take control of the learning process. We take a student-centered learning approach where students drive the program, and their involvement in the decision making process helps them to take complete accountability for their actions.",
   image: pt5
 },{
-  title: "Evidence based learning",
+  title: "Evidence-based",
   text: "We teach students using evidence-based learning techniques (pomodoro technique, ANTS, THINK and other mindfulness practices) to develop a growth mindset and facilitate the creation of long lasting positive habits, giving them a competitive edge to succeed in life",
   image: pt3
-}, {
-  title: "Expert mentors. Not teachers",
-  text: "Schools focus on what to learn rather than teaching students how to learn. We don't have teachers. We have mentors. Our mentors lead students towards self-awareness of skills and give them regular and relevant feedback on their goal progression.",
-  image: pt9
 }];
 
 export const InfoPanel = (props) => {
@@ -32,12 +32,11 @@ export const InfoPanel = (props) => {
     container: {
       display: 'flex',
       flexWrap: !isDesktop && 'wrap',
-      margin: isDesktop ? '50px 20px' : '50px 20px',
-      backgroundColor: '#fefee1',
+      margin: !isDesktop && '50px 20px',
       height: 'auto'
     },
     missionDiv: {
-      margin: '20px',
+      margin: '20px 0px',
       padding: !isDesktop ? '0px 0px 0px 10px' : '10px 20px',
       //padding: isDesktop ? '100px' : '20px 0px 0px 10px'
     },
@@ -66,6 +65,7 @@ export const InfoPanel = (props) => {
       margin: isDesktop && "40px 40px 40px 10px",
       marginTop: !isDesktop && '20px',
       maxWidth: 345,
+      height: 420,
       "& .MuiButtonBase-root": {
         display: "block"
       }

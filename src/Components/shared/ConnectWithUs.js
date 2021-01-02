@@ -39,7 +39,7 @@ export const ConnectWithUs = (props) => {
       justifyContent: !shouldWrap && 'center'
     },
     connectDiv: {
-      marginLeft: isDesktop ? '100px' : '0',
+      marginLeft: isDesktop ? '100px' : '20px',
       flex: shouldWrap && isDesktop ? "0 0 45%" : '100%',
       textAlign: !shouldWrap && 'center',
       marginTop : !isDesktop && '20px'
@@ -47,7 +47,6 @@ export const ConnectWithUs = (props) => {
     connectCard: {
       padding:"20px",
       boxShadow: !shouldWrap && 'none',
-      border: '1px solid #ffab00',
       margin: !shouldWrap && '0 auto',
       maxWidth: !shouldWrap && '40%'
     },
