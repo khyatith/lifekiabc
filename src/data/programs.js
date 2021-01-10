@@ -12,6 +12,11 @@ export const MINI_COURSES = [{
   catchPhrase: "Encouraging productive habits",
   ageGroup: '8 - 14 years',
   price: "649/-",
+  startDate: "March 14th, 2021",
+  endDate: "March 21st, 2021",
+  timing: "10 - 11 AM IST",
+  minidescription: "This mini-course is a 2 day course, spread across 1 week. We have 1 class of 1 hour each week.",
+  paymentLink: "https://imjo.in/9FFEyp",
   benefits: [
     "Enhances academic performance",
     "Supports faster goal achievement",
@@ -36,6 +41,11 @@ export const MINI_COURSES = [{
   catchPhrase: "Creating confident orators",
   ageGroup: '8 - 14 years',
   price: "649/-",
+  startDate: "Feburary 21st, 2021",
+  endDate: "Feburary 28th, 2021",
+  timing: "10 - 11 AM IST",
+  minidescription: "This mini-course is a 2 day course, spread across 1 week. We have 1 class of 1 hour each week.",
+  paymentLink: "https://imjo.in/TXqp4w",
   benefits: [
     "Improve interpersonal and formal communication",
     "Speak confidently in varied academic and extra-curricular settings",
@@ -58,6 +68,7 @@ export const MINI_COURSES = [{
   catchPhrase: "Discovering untapped potential",
   ageGroup: "8 - 14 years",
   price: "649/-",
+  minidescription: "This mini-course is a 2 day course, spread across 1 week. We have 1 class of 1 hour each week.",
   benefits: [
     "Improves quality of work",
     "Supports faster goal achievement",
@@ -84,6 +95,7 @@ export const LONG_TERM_PROGRAMS = [{
   ctaText: 'Request a free demo',
   ageGroup: '8 - 14 years',
   price: "3500/-",
+  minidescription: "This is an exclusive 6 week practicum-oriented program for teens and pre-teens that builds leadership skills in students through individualized real-word projects.",
   description: "Super Leaders Program is an exclusive practicum-oriented life skills program for teens and pre-teens that builds leadership and ownership skills in students through individualized real-word projects. Every student is encouraged to undertake and complete a real-world project of their own choosing during the program - students decide what they want to learn, why they want to learn it, and together we figure out how they should be assessed. We then help them break down their bigger goals into milestones, manage their time with their other commitments and provide regular feedback on their milestones. The end result is strong embedding of their primary life skill of choice along with learning the practical applications of all the life skills taught in the program.",
   benefits: [
     "Enhances academic performance",

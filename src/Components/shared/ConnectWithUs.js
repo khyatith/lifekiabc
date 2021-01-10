@@ -62,19 +62,19 @@ export const ConnectWithUs = (props) => {
   }));
 
   const handleIGClick = () => {
-    window.open('https://www.instagram.com/lifekiabc/', '_blank');
+    window.location.assign('https://www.instagram.com/lifekiabc/');
   }
 
   const handleFBClick = () => {
-    window.open('https://www.facebook.com/lifekiabc', '_blank');
+    window.location.assign('https://www.facebook.com/lifekiabc');
   }
   
   const handleTwitterClick = () => {
-    window.open('https://twitter.com/LifeKiABC', '_blank');
+    window.location.assign('https://twitter.com/LifeKiABC');
   }
 
   const handleLinkedinClick = () => {
-    window.open('https://www.linkedin.com/company/lifekiabc/?viewAsMember=true', '_blank');
+    window.location.assign('https://www.linkedin.com/company/lifekiabc/?viewAsMember=true');
   }
 
   const goToDemoForm = () => {

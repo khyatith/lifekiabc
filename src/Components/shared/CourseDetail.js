@@ -63,7 +63,6 @@ export const CourseDetail = (props) => {
       objectFit: 'contain'
     },
     courseDescription: {
-      display: !isDesktop && 'flex',
       margin: '20px',
     },
     courseCurriculum: {
@@ -77,6 +76,13 @@ export const CourseDetail = (props) => {
       padding: '20px',
       backgroundColor: '#fefee1',
       height: 'auto'
+    },
+    upcomingBatchDetails: {
+      margin: !isDesktop ? '20px auto' : '30px auto',
+      padding: '20px',
+      display: 'block',
+      //backgroundColor: '#fefee1',
+      textAlign: 'center',
     },
     imgDiv: {
       width: '100%',
@@ -196,7 +202,7 @@ export const CourseDetail = (props) => {
                 </Typography>
                 <h3>&#8377;{selectedCourseDetail.price}</h3>
               </div>
-              <ContactUsButton />
+              <ContactUsButton isDesktop={isDesktop} paymentLink={selectedCourseDetail.paymentLink}/>
             </Grid>
             <Grid item xs={12} md={8} className={classes.imgDiv}>
               <CardMedia component="img" image={selectedCourseDetail.image} className={classes.media1} height={isDesktop ? '300px' : '100%'} width={'200px'}/>
@@ -204,19 +210,25 @@ export const CourseDetail = (props) => {
           </div>
         </VisibilitySensor>
       </Banner>
+      <Grid item xs={12} md={5} className={classes.upcomingBatchDetails}>
+        <Typography variant={"h6"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+          <Box fontWeight="fontWeightBold">
+            <span className={classes.blueColor}>Upcoming batch details</span>
+          </Box>
+        </Typography>
+        <p className={`${classes.fontSizeMd} ${isVisible ? classes.fadeInUp : ''}`}>{selectedCourseDetail.minidescription}</p>
+        { selectedCourseDetail.startDate && <p className={`${classes.fontSizeMd} ${isVisible ? classes.fadeInUp : ''}`}>Start date - {selectedCourseDetail.startDate}</p>}
+        { selectedCourseDetail.endDate && <p className={`${classes.fontSizeMd} ${isVisible ? classes.fadeInUp : ''}`}>End date - {selectedCourseDetail.endDate}</p>}
+        { selectedCourseDetail.timing && <p className={`${classes.fontSizeMd} ${isVisible ? classes.fadeInUp : ''}`}>Class timing - {selectedCourseDetail.timing}</p>}
+        { selectedCourseDetail.startDate && <p className={`${classes.fontSizeMd} ${isVisible ? classes.fadeInUp : ''}`}>Class duration - 1 hour</p>}
+      </Grid>
       <div className={classes.courseDescription}>
-        <div>
-          <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
-            <>
-              <Typography variant={"h6"} className={`${isVisible ? classes.fadeInUp : ''}`}>
-                <Box fontWeight="fontWeightBold">
-                  <span className={classes.blueColor}>What is {selectedCourseDetail.name} {selectedCourseDetail.type}</span>
-                </Box>
-              </Typography>
-              <p className={`${classes.fontSizeMd} ${isVisible ? classes.fadeInUp : ''}`}>{selectedCourseDetail.description}</p>
-            </>
-          </VisibilitySensor>
-        </div>
+        <Typography variant={"h6"} className={`${isVisible ? classes.fadeInUp : ''}`}>
+          <Box fontWeight="fontWeightBold">
+            <span className={classes.blueColor}>What is {selectedCourseDetail.name} {selectedCourseDetail.type}</span>
+          </Box>
+        </Typography>
+        <p className={`${classes.fontSizeMd} ${isVisible ? classes.fadeInUp : ''}`}>{selectedCourseDetail.description}</p>
       </div>
       <div className={classes.courseBenefits}>
         <div>

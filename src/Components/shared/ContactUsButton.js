@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useHistory } from "react-router-dom";
 
 export const ContactUsButton = (props) => {
-  const { isDesktop } = props;
+  const { isDesktop, paymentLink } = props;
   const history = useHistory();
   const useStyles = makeStyles(() => ({
     contactUsBtn: {
@@ -24,8 +24,12 @@ export const ContactUsButton = (props) => {
     },
   }));
 
-  const openFreeRegistrationForm = () => {
-    history.push('/free-demo-registration');
+  const openNextStepPage = () => {
+    if(!paymentLink) {
+      history.push('/free-demo-registration');
+    } else {
+      window.location.assign(paymentLink);
+    }
   }
 
   // const scrollToContactUs = () => {
@@ -37,8 +41,9 @@ export const ContactUsButton = (props) => {
   // }
   const classes = useStyles();
   return (
-    <Button variant="contained" className={classes.contactUsBtn} onClick={() => openFreeRegistrationForm()}>
-      <h2>Request a free demo</h2>
+    <Button variant="contained" className={classes.contactUsBtn} onClick={() => openNextStepPage()}>
+      {!paymentLink && <h2>Request a free demo</h2>}
+      {paymentLink && <h2>Enroll now</h2>}
     </Button>
   )
 };
