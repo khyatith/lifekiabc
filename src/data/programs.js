@@ -72,6 +72,7 @@ export const MINI_COURSES = [{
   endDate: "Sunday, April 4th, 2021",
   timing: "10 - 11 AM IST",
   minidescription: "This mini-course is a 2 day course.",
+  paymentLink: 'https://imjo.in/d4XDQf',
   benefits: [
     "Improves quality of work",
     "Supports faster goal achievement",
