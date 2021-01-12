@@ -14,6 +14,7 @@ import CardActions from '@material-ui/core/CardActions';
 import { Button } from '@material-ui/core';
 
 export const Programs = (props) => {
+  const { isDesktop } = props;
   const [isVisible, setVisibility] = useState(false);
   const history = useHistory();
 
@@ -47,7 +48,7 @@ export const Programs = (props) => {
     //   padding: '0 !important'
     // },
     programCard: {
-      maxWidth: 345,
+      width: isDesktop ? 350 : 300,
       margin: '50px 30px 30px 30px'
     },
     media: {
@@ -110,11 +111,10 @@ export const Programs = (props) => {
   };
 
   const renderCourseDetail = (e, course) => {
-    console.log('inside course details',course);
     const { name, link, type } = course;
     history.push({
-      pathname: `/course/${link}`,
-      state: { name, type }
+      pathname: `/course-detail/${type}/${link}`,
+      state: { name, type },
     });
   }
 
@@ -144,7 +144,9 @@ export const Programs = (props) => {
               <br/>
               { (startDate && endDate && timing) ? (
                 <Typography variant="body2" component="p">
-                  Upcoming batch : <br/> {startDate} - {endDate} <br/>
+                  Upcoming batch : <br/> 
+                  Day 1: {startDate}<br/>
+                  Day 2: {endDate} <br/>
                   Class Timing : {timing}
                 </Typography>
               ) : 

@@ -96,7 +96,7 @@ export const HomePage = (props) => {
             <Grid item xs={12} md={4} className={classes.catchPhraseDiv}>
               <div className={classes.catchPhrase}>
                 <Typography variant={"h4"} className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}`}>
-                  Application-oriented <br/>life skills development
+                  Application-oriented <br/>life skills development for<br/>8 - 14 years old
                 </Typography>
               </div>
               <ContactUsButton />

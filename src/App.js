@@ -31,7 +31,7 @@ function App() {
             <Route path="/free-demo-registration">
               <FreeDemoRegistration isDesktop={isDesktop} />
             </Route>
-            <Route path="/course/:name">
+            <Route path="/course-detail/:type/:name">
               <CourseDetail isDesktop={isDesktop} />
             </Route>
             <Route path="/about-us">
