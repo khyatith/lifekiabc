@@ -21,10 +21,9 @@ export const CourseDetail = (props) => {
   const location = useLocation();
 
   useEffect(() => {
-    console.log('location', location);
     const locationData = location.pathname.split('/');
-    const name = location.state.name || locationData[3];
-    const type = location.state.type || locationData[2];
+    const name = (location.state && location.state.name) || locationData[3];
+    const type = (location.state && location.state.type) || locationData[2];
     const dataSource = type === "course" ? MINI_COURSES : LONG_TERM_PROGRAMS
     const courseDetail = dataSource.filter(course => course.name === name)[0];
     setSelectedCourseDetail(courseDetail);
