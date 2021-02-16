@@ -125,7 +125,7 @@ export const Header = (props) => {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleContactUsClose} classes={{ root: classes.listItemClass }}>Enroll now</MenuItem>
+        <MenuItem onClick={handleContactUsClose} classes={{ root: classes.listItemClass }}>Apple now</MenuItem>
         <MenuItem onClick={handleAboutUsClose} classes={{ root: classes.listItemClass }}>About us</MenuItem>
         <MenuItem onClick={handleOurCoursesClose} classes={{ root: classes.listItemClass }}>Our courses</MenuItem>
         <MenuItem onClick={handleHomeClose} classes={{ root: classes.listItemClass }}>Home</MenuItem>
@@ -157,7 +157,7 @@ export const Header = (props) => {
         </Grid>
         <Grid item xs={3}>
           <Typography variant="subtitle1">
-            <Link to="" className={classes.desktopMenu} onClick={() => goToContactUs()}>Enroll now</Link>
+            <Link to="" className={classes.desktopMenu} onClick={() => goToContactUs()}>Apply now</Link>
           </Typography>
         </Grid>
         <Grid item xs={3}>
@@ -167,7 +167,7 @@ export const Header = (props) => {
         </Grid>
         <Grid item xs={3}>
           <Typography variant="subtitle1" className={classes.desktopMenu} onClick={() => goToOurCourses()}>
-            Our courses
+            Program path
           </Typography>
         </Grid>
       </div>

@@ -8,18 +8,18 @@ export const ContactUsButton = (props) => {
   const history = useHistory();
   const useStyles = makeStyles(() => ({
     contactUsBtn: {
-      marginBottom: !isDesktop && '20px',
-      color: '#ffffff',
-      backgroundColor: '#990000',
-      marginTop: !isDesktop && '-30px',
-      textTransform: 'none',
-      paddingLeft: '20px',
-      paddingRight: '20px',
-      zIndex: '999',
-      lineHeight: '1',
+      marginBottom: !isDesktop && '20px !important',
+      color: '#ffffff !important',
+      backgroundColor: '#990000 !important',
+      marginTop: !isDesktop && '-30px !important',
+      textTransform: 'none !important',
+      paddingLeft: '20px !important',
+      paddingRight: '20px !important',
+      zIndex: '999 !important',
+      lineHeight: '1 !important',
       "&:hover": {
-        backgroundColor: "#990000",
-        opacity: '0.8'
+        backgroundColor: "#990000 !important",
+        opacity: '0.8 !important'
       }
     },
   }));
@@ -42,7 +42,7 @@ export const ContactUsButton = (props) => {
   const classes = useStyles();
   return (
     <Button variant="contained" className={classes.contactUsBtn} onClick={() => openNextStepPage()}>
-      {!paymentLink && <h2>Request a free demo</h2>}
+      {!paymentLink && <h2>Request a free consultation</h2>}
       {paymentLink && <h2>Enroll now</h2>}
     </Button>
   )

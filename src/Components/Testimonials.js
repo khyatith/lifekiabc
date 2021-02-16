@@ -87,7 +87,7 @@ export const Testimonials = (props) => {
     <div className={classes.planContainer}>
       <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
         <>
-          <Typography variant={"h5"} className={isVisible ? classes.fadeInUp : ''}>
+          <Typography variant={"h4"} className={isVisible ? classes.fadeInUp : ''}>
             <Box fontWeight="fontWeightBold" textAlign="center">
               <span className={classes.blueColor}>Testimonials</span>
             </Box>

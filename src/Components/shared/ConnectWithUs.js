@@ -120,7 +120,7 @@ export const ConnectWithUs = (props) => {
             <div className={classes.whatsappDiv}>
               <br/>
               <br/>
-              <Link component="button" href="#" onClick={goToDemoForm} style={{ color: blue[700], fontSize: 20 }}>Request a free demo</Link>
+              <Link component="button" href="#" onClick={goToDemoForm} style={{ color: blue[700], fontSize: 20 }}>Request a free consultation</Link>
             </div>
           </Card>
         </>

@@ -8,30 +8,13 @@ import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { Header } from './Header';
-import Checkbox from '@material-ui/core/Checkbox';
-import { FormControlLabel } from '@material-ui/core';
-import FormGroup from '@material-ui/core/FormGroup';
 
-const ALL_COURSES = [{
-  value: "1",
-  name: 'Super Leaders Program',
-}, {
-  value: "2",
-  name: 'Productivity Enhancer course',
-}, {
-  value: "3",
-  name: 'Confident Orator course',
-}, {
-  value: "4",
-  name: 'S.M.A.R.T. Executor course',
-}];
 
 export const FreeDemoRegistration = (props) => {
   const { isDesktop } = props;
   const [parentName, setParentName] = useState('');
   const [childName, setChildName] = useState('');
   const [phone, setPhoneNumber] = useState('');
-  const [checkedCourses, setCheckedCourses] = useState([]);
   const [email, setEmail] = useState('');
   const [childAge, setChildAge] = useState('');
   const [message, setMessage] = useState('');
@@ -42,14 +25,14 @@ export const FreeDemoRegistration = (props) => {
 
   const useStyles = makeStyles(() => ({
     contactUsBtn: {
-      color: '#ffffff',
-      backgroundColor: '#990000',
-      textTransform: 'none',
-      fontSize: '20px',
-      padding: '10px 20px 10px 20px',
+      color: '#ffffff !important',
+      backgroundColor: '#990000 !important',
+      textTransform: 'none !important',
+      fontSize: '20px !important',
+      padding: '10px 20px 10px 20px !important',
       "&:hover": {
-        backgroundColor: "#990000",
-        opacity: '0.8'
+        backgroundColor: "#990000 !important",
+        opacity: '0.8 !important'
       }
     },
     contactUsFormContainer: {
@@ -155,26 +138,11 @@ export const FreeDemoRegistration = (props) => {
     return true;
   }
 
-  const getSelectedCourseNames = () => {
-    const result = [];
-    console.log('checkedCourses', checkedCourses);
-    for(let i=0; i < ALL_COURSES.length; i++) {
-      for (let j=0; j < checkedCourses.length; j++) {
-        if (checkedCourses[j] === ALL_COURSES[i].value) {
-          result.push(ALL_COURSES[i].name);
-        }
-      }
-    }
-    return result.join(',');
-  }
-
   const sendMessage = async (event) => {
     event.preventDefault();
     if (!isValidUserDetails()) {
       return setEmailValidated(false);
     }
-
-    const selectedCourseNames = getSelectedCourseNames();
     
     const templateParams = {
       from_name: parentName,
@@ -182,7 +150,6 @@ export const FreeDemoRegistration = (props) => {
       to_name: "lifekiabc@gmail.com",
       user_message: message,
       parent_name: parentName,
-      selected_courses: selectedCourseNames,
       child_name: childName,
       child_age: childAge,
       phone_number: phone
@@ -196,32 +163,8 @@ export const FreeDemoRegistration = (props) => {
     }
     setAlertOpen(true);
   }
-  const handleCourseChange = (event) => {
-    const { value } = event.target;
-    setCheckedCourses(checkedCourses.includes(value) ? checkedCourses.filter(c => c !== value) : [...checkedCourses, value]);
-  }
 
   const classes = useStyles();
-
-  const renderAvailableCourses = () => {
-    return (
-      ALL_COURSES.map((course, index) => {
-          const { value,name } = course;
-          return <FormGroup key={index}>
-            <FormControlLabel
-            control={<Checkbox
-              checked ={checkedCourses.includes(value)}
-              onChange={handleCourseChange}
-              name={name}
-              value={value}
-              color="secondary"
-            />}
-            label={name}
-          />
-        </FormGroup>
-      })
-    )
-  };
 
   return (
     <>
@@ -241,9 +184,6 @@ export const FreeDemoRegistration = (props) => {
           <TextField error={!emailValidated} required id="childAge" label="Child's Age" value={childAge} onChange={handleChildAgeChange} type="number"/>
           <TextField error={!emailValidated} required id="email" label="Email" value={email} onChange={handleEmailChange}/>
           <TextField id="phone" label="Phone Number" value={phone} onChange={handlePhoneChange}/>
-          <div className={classes.checkboxWrapper}>
-              {renderAvailableCourses()}
-          </div>
           <TextField
             id="query"
             label="Message"

@@ -60,7 +60,7 @@ export const HomePageBanner = (props) => {
             Application-centric life-skills development
           </Typography>
         </div>
-        <ContactUsButton />
+        <ContactUsButton isDesktop={isDesktop} />
       </Grid>
       <Grid item xs={12} md={8} className={`${classes.logoDiv} ${isVisible ? classes.fadeInUp : ''}`}>
         <CardMedia component="img" image={school} className={classes.media1} height="100%" />

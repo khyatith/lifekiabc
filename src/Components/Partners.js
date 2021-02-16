@@ -5,7 +5,6 @@ import VisibilitySensor from 'react-visibility-sensor';
 import Grid from '@material-ui/core/Grid';
 import CardMedia from '@material-ui/core/CardMedia';
 import Dizikid from '../assets/partners/dizikid-logo.png';
-import PurplePheonix from '../assets/partners/purple-pheonix-logo.jpg';
 import BhashaSagar from '../assets/partners/bhasha-sagar-logo.jpeg';
 import Card from '@material-ui/core/Card';
 import { ConnectWithUs } from './shared/ConnectWithUs';
@@ -91,13 +90,10 @@ export const Partners = (props) => {
             <div>
             <Card>
               <Grid container spacing={2}>
-                <Grid item xs={12} sm={3} className={classes.marginSm}>
+                <Grid item xs={12} sm={4} className={classes.marginSm}>
                   <CardMedia component="img" image={Dizikid} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>
                 </Grid>
-                <Grid item xs={12} sm={3} className={classes.marginSm}>
-                  <CardMedia component="img" image={PurplePheonix} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>
-                </Grid>
-                <Grid item xs={12} sm={3} className={classes.marginSm}>
+                <Grid item xs={12} sm={4} className={classes.marginSm}>
                   <CardMedia component="img" image={BhashaSagar} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>
                 </Grid>
               </Grid>

@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Banner } from './shared/Banner';
 import Grid from '@material-ui/core/Grid';
 import { ContactUsButton } from './shared/ContactUsButton';
-import { Programs } from './Programs';
+import { PSCB } from './PSCB';
 import { InfoPanel } from './InfoPanel';
 import homepageimg from '../assets/hp.png';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -114,10 +114,12 @@ export const HomePage = (props) => {
           </Box>
         </Typography>
       </Grid>
-      <div id="ourcourses">
-        <Programs isDesktop={isDesktop} />
+      <div>
+        <PSCB isDesktop={isDesktop} />
       </div>
-      <InfoPanel isDesktop={isDesktop} />
+      <div id="ourcourses">
+        <InfoPanel isDesktop={isDesktop} />
+      </div>
       <Testimonials isDesktop={isDesktop} />
       <Partners isDesktop={isDesktop} shouldWrap={true} />
     </>
