@@ -81,8 +81,7 @@ export const PSCB = (props) => {
     },
     approachImg: {
       height: isDesktop ? '400px' : '100%',
-      width: isDesktop && '500px',
-      minWidth: !isDesktop && '100%',
+      minWidth: !isDesktop ? '100%' : '500px',
       objectFit: isDesktop ? 'contain' : 'cover'
     },
     programCardHeader:{
@@ -109,7 +108,7 @@ export const PSCB = (props) => {
 
   return (
     <div className={classes.container}>
-      <div>
+      <div style={{width: '100%'}}>
         <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
           <>
             <div style={{width: '100%', textAlign: 'center', marginTop: '30px'}}>
