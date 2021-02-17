@@ -79,6 +79,12 @@ export const PSCB = (props) => {
       textDecoration: 'underline',
       color: '#3299CC'
     },
+    approachImg: {
+      height: isDesktop ? '400px' : '100%',
+      width: isDesktop && '500px',
+      minWidth: !isDesktop && '100%',
+      objectFit: isDesktop ? 'contain' : 'cover'
+    },
     programCardHeader:{
       "& .MuiCardHeader-title": {
         fontSize: '1rem'
@@ -113,7 +119,7 @@ export const PSCB = (props) => {
                 </Box>
               </Typography>
               <Grid item xs={12} md={12} style={{marginTop: '30px'}}>
-                <CardMedia component="img" image={Approach} height='400px' width={'500px'} style={{objectFit: 'contain'}}/>
+                <CardMedia component="img" image={Approach} className={classes.approachImg} />
               </Grid>
             </div>
           </>
