@@ -175,7 +175,7 @@ export const FreeDemoRegistration = (props) => {
             Please enter your details and we will get back to you!
           </Typography>
           <Typography variant={"h6"}>
-            All courses are for 8 - 14 years old
+            All courses are for 8 - 12 years old
           </Typography>
           <br/>
           <br/>

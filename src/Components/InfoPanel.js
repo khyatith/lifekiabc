@@ -2,27 +2,18 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 
 export const InfoPanel = (props) => {
   const { isDesktop } = props;
 
   const useStyles = makeStyles(() => ({
     container: {
+      display: 'flex',
       flexWrap: !isDesktop && 'wrap',
-      margin: '50px 20px',
+      margin: isDesktop ? '50px 20px' : '50px 20px',
+      //backgroundColor: '#fff5eb',
+      //border: '1px solid #cccccc',
       height: 'auto'
-    },
-    missionDiv: {
-      margin: '20px 0px',
-      padding: !isDesktop ? '0px 0px 0px 10px' : '10px 20px',
-      textAlign: 'center'
-      //padding: isDesktop ? '100px' : '20px 0px 0px 10px'
     },
     missionDiv1: {
       margin: '20px',
@@ -85,70 +76,65 @@ export const InfoPanel = (props) => {
       animation: `$fadeInUp 1s both`,
       opacity: 0,
     },
+    programDiv: {
+      flex: isDesktop && "0 0 45%",
+      margin: '20px 0px',
+      padding: !isDesktop ? '0px 0px 0px 10px' : '10px 20px',
+      flexWrap: !isDesktop && 'wrap'
+    },
+    outcomesDiv: {
+      flex: isDesktop && "0 0 45%",
+      margin: '20px 10px',
+      padding: !isDesktop ? '0px 0px 0px 10px' : '10px 20px',
+      flexWrap: !isDesktop && 'wrap'
+    }
   }));
   const classes = useStyles(isDesktop);
 
   const renderProgramPath = () => {
     return (
-      <TableContainer component={Paper} className={classes.programpathcontainer}>
-        <Table aria-label="simple table">
-          <TableBody>
-            <TableRow>
-              <TableCell component="th" scope="row" style={{width: '30%'}}>
-                <Typography component="p" className={classes.heading}>
-                  Art of conveying ideas clearly <br/>
-                  <span className={classes.blueColor}>6 WEEKS</span>
-                </Typography>
-              </TableCell>
-              <TableCell align="left">
-                <Typography className={classes.explanation}>
-                  Students will learn how to structure and articulate their thoughts on important topics. They will also learn the art of managing nervousness while talking in front of known and unkown people
-                </Typography>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell component="th" scope="row" style={{width: '30%'}}>
-                <Typography component="p" className={classes.heading}>
-                  Art of engaging listeners <br/>
-                  <span className={classes.blueColor}>6 WEEKS</span>
-                </Typography>
-              </TableCell>
-              <TableCell align="left">
-                <Typography className={classes.explanation}>
-                  Students will learn how to speak confidently and engagingly in front of an audience. Students will get ample practice to work on their speech delivery and storytelling skills.
-                </Typography>
-              </TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell component="th" scope="row" style={{width: '30%'}}>
-                <Typography component="p" className={classes.heading}>
-                  Art of speaking effectively <br/>
-                  <span className={classes.blueColor}>6 WEEKS</span>
-                </Typography>
-              </TableCell>
-              <TableCell align="left">
-                <Typography className={classes.explanation}>
-                  Students will learn different forms of speech and how to structure their thoughts according to the audience.
-                </Typography>
-              </TableCell>
-            </TableRow>
-          </TableBody>
-        </Table>
-      </TableContainer>
+        <div style={{marginTop: '25px'}}>
+          <Typography component="p">
+            Our programs are carefully designed to make students think about real-world problems. Student will learn how to ask questions, how to think about strategic solutions to problems and how to come up with their own creative solutions.
+          </Typography>
+          <Typography component="p">
+            We use the P21 framework approach to build creativity, collaboration and critical thinking in students with an emphasis on education.
+          </Typography>
+        </div>
+    );
+  };
+
+  const renderOutcomes = () => {
+    return (
+      <div style={{marginTop: '25px'}}>
+        <ul>
+          <li style={{marginTop:'10px'}}>Remove shyness</li>
+          <li style={{marginTop:'10px'}}>Thinking structurally about problems</li>
+          <li style={{marginTop:'10px'}}>Increase in confidence to speak up in front of audience</li>
+          <li style={{marginTop:'10px'}}>Learn to ask relevant questions</li>
+          <li style={{marginTop:'10px'}}>Enhanced global awareness about real-world topics</li>
+        </ul>
+      </div>
     );
   };
 
   return (
     <div className={classes.container}>
-      <div className={classes.missionDiv}>
+      <div className={classes.programDiv}>
         <Typography variant={"h4"}>
           <Box fontWeight="fontWeightBold">
             <span className={classes.blueColor}>Program path</span>
           </Box>
         </Typography>
-        <div>
-          {renderProgramPath()}
-        </div>
+        {renderProgramPath()}
+      </div>
+      <div className={classes.outcomesDiv}>
+        <Typography variant={"h4"}>
+          <Box fontWeight="fontWeightBold">
+            <span className={classes.blueColor}>Outcomes</span>
+          </Box>
+        </Typography>
+        {renderOutcomes()}
       </div>
     </div>
   )

@@ -14,7 +14,7 @@ export const PSCB = (props) => {
   const useStyles = makeStyles(() => ({
     container: {
       display: 'flex',
-      margin: '20px',
+      margin: isDesktop ? '0 20px' : '30px 20px'
     },
     fadeInUp: {
       animation: `$fadeInUp 1s both`,
@@ -111,7 +111,7 @@ export const PSCB = (props) => {
       <div style={{width: '100%'}}>
         <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
           <>
-            <div style={{width: '100%', textAlign: 'center', marginTop: '30px'}}>
+            <div style={{width: '100%', textAlign: 'center'}}>
               <Typography variant={"h4"} className={`${isVisible ? classes.fadeInUp : ''}`}>
                 <Box fontWeight="fontWeightBold">
                   <span className={classes.blueColor}>Our Approach to Learning</span>

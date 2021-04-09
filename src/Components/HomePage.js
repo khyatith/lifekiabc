@@ -4,6 +4,7 @@ import { Banner } from './shared/Banner';
 import Grid from '@material-ui/core/Grid';
 import { ContactUsButton } from './shared/ContactUsButton';
 import { PSCB } from './PSCB';
+import { WhyUs } from './WhyUs';
 import { InfoPanel } from './InfoPanel';
 import homepageimg from '../assets/hp.png';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -12,7 +13,6 @@ import Typography from '@material-ui/core/Typography';
 import { Testimonials } from './Testimonials';
 import { Partners } from './Partners';
 import { useLocation } from "react-router-dom";
-import Box from '@material-ui/core/Box';
 
 export const HomePage = (props) => {
   const location = useLocation();
@@ -96,7 +96,7 @@ export const HomePage = (props) => {
             <Grid item xs={12} md={4} className={classes.catchPhraseDiv}>
               <div className={classes.catchPhrase}>
                 <Typography variant={"h4"} className={`${classes.missionStmt1} ${isVisible ? classes.fadeInUp : ''}`}>
-                  Application-oriented <br/>life skills development for<br/>8 - 14 years old
+                  Leadership & Communication skills for<br/>8 - 12 years old
                 </Typography>
               </div>
               <ContactUsButton />
@@ -107,16 +107,15 @@ export const HomePage = (props) => {
           </div>
         </VisibilitySensor>
       </Banner>
-      <Grid item xs={12} md={5} className={classes.kpidiv}>
+      {/* <Grid item xs={12} md={5} className={classes.kpidiv}>
         <Typography variant={isDesktop ? "h4" : "h5"} className={`${isVisible ? classes.fadeInUp : ''}`}> 
           <Box fontWeight="fontWeightBold">
-            100+ hours of life skills taught across 5+ countries
+            100+ students mentored across 5+ countries
           </Box>
         </Typography>
-      </Grid>
-      <div>
-        <PSCB isDesktop={isDesktop} />
-      </div>
+      </Grid> */}
+      <WhyUs isDesktop={isDesktop} />
+      <PSCB isDesktop={isDesktop} />
       <div id="ourcourses">
         <InfoPanel isDesktop={isDesktop} />
       </div>

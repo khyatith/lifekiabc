@@ -88,16 +88,16 @@ export const Partners = (props) => {
               </Box>
             </Typography>
             <div>
-            <Card>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={4} className={classes.marginSm}>
-                  <CardMedia component="img" image={Dizikid} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>
+              <Card>
+                <Grid container spacing={2}>
+                  <Grid item xs={12} sm={4} className={classes.marginSm}>
+                    <CardMedia component="img" image={Dizikid} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>
+                  </Grid>
+                  <Grid item xs={12} sm={4} className={classes.marginSm}>
+                    <CardMedia component="img" image={BhashaSagar} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>
+                  </Grid>
                 </Grid>
-                <Grid item xs={12} sm={4} className={classes.marginSm}>
-                  <CardMedia component="img" image={BhashaSagar} className={classes.media} height={isDesktop ? '150px' : '100%'} width={'100px'}/>
-                </Grid>
-              </Grid>
-            </Card>
+              </Card>
             </div>
           </div>
           <ConnectWithUs isDesktop={isDesktop} shouldWrap={props.shouldWrap} />
