@@ -90,7 +90,7 @@ export const WhyUs = (props) => {
               whyUsData.map((data, index) => {
                 return (
                   <TableRow key={index}>
-                    <TableCell component="th" scope="row" style={{width: '30%'}}>
+                    <TableCell component="th" scope="row" style={{width: '30%'}} key={index}>
                       <Typography component="p" className={classes.heading}>
                         {data.heading} <br/>
                       </Typography>

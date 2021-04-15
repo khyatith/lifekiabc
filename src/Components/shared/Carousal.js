@@ -30,7 +30,7 @@ export const Carousal = (props) => {
 
   return(
     <>
-      <Carousel animation={"slide"} timeout={1000} interval={10000}>
+      <Carousel animation={"fade"} timeout={1000} interval={10000}>
         { items.map((item, index) => {
           return (
             <Paper className={classes.carousalDiv} key={index}>

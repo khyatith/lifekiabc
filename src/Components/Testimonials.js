@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import VisibilitySensor from 'react-visibility-sensor';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import { Carousal } from './shared/Carousal';
 import FormatQuoteSharpIcon from '@material-ui/icons/FormatQuoteSharp';
+import { YoutubeEmbed } from './shared/YoutubeEmbed';
 
 const TestimonialItems = [{
   description: "I enjoyed the session. I made new friends. I understood the concepts of Time Management...like I have to prioritize between need and want. Thank you so much.",
@@ -32,24 +32,19 @@ export const Testimonials = (props) => {
   const [isVisible, setVisibility] = useState(false);
 
   const useStyles = makeStyles(() => ({
-    planContainer: {
-      display: 'block',
-      margin: '20px',
-      //textAlign: 'center',
-      padding: !isDesktop ? '20px' : '20px',
+    container: {
       backgroundColor: '#fefee1',
+      display: 'flex',
+      flexWrap: !isDesktop && 'wrap',
+      margin: isDesktop ? '50px 20px' : '50px 20px',
+      padding: '20px',
+      height: 'auto'
     },
-    media: {
-      objectFit: 'contain',
-      margin: '30px'
-    },
-    fadeInUp: {
-      animation: `$fadeInUp 1s both`,
-      opacity: 0,
-    },
-    valuestext: {
-      fontSize: isDesktop ? '24px' : '20px',
-      lineHeight: '1.5em'
+    testimonials: {
+      flex: isDesktop && "0 0 50%",
+      //margin: '20px 0px',
+      //padding: !isDesktop ? '0px 0px 0px 10px' : '10px 20px',
+      flexWrap: !isDesktop && 'wrap'
     },
     blueColor: {
       color: '#3299CC'
@@ -57,47 +52,38 @@ export const Testimonials = (props) => {
     kpiDiv: {
       margin: "20px auto",
     },
-    testimonialgrid: {
-      margin: '0 auto'
-    },
     quotations: {
       margin: '0 40%',
       color: '#990000',
       fontSize: 80,
       textAlign: 'center'
     },
-    "@keyframes fadeInUp": {
-      "from": {
-          transform: "translate3d(0,40px,0)",
-      }, 
-      "to": {
-          transform: "translate3d(0,0,0)",
-          opacity: 1
-      }
-    },
+    youtubevideo: {
+      flex: isDesktop ? "0 0 45%" : 'auto',
+      margin: '20px 10px',
+      padding: !isDesktop ? '0px 0px 0px 10px' : '10px 20px',
+      flexWrap: !isDesktop && 'wrap'
+    }
   }));
-
-  const changeVisibilityHandler = (e) => {
-    setVisibility(e);
-  };
 
   const classes = useStyles();
 
   return (
-    <div className={classes.planContainer}>
-      <VisibilitySensor onChange={changeVisibilityHandler} partialVisibility={true}>
-        <>
+    <div className={classes.container}>
+        <div className={classes.testimonials}>
           <Typography variant={"h4"} className={isVisible ? classes.fadeInUp : ''}>
             <Box fontWeight="fontWeightBold" textAlign="center">
               <span className={classes.blueColor}>Testimonials</span>
             </Box>
           </Typography>
-          <Grid item xs={12} sm={4} className={classes.kpiDiv}>
+          <Grid item xs={12} sm={8} className={classes.kpiDiv}>
             <FormatQuoteSharpIcon className={classes.quotations}/>
             <Carousal items={TestimonialItems} backgroundColor={'#fefee1'} />
           </Grid>
-        </>
-      </VisibilitySensor>
+        </div>
+        <div className={classes.youtubevideo}>
+          <YoutubeEmbed embedId='F2lD8lKbF1U' />
+        </div>
     </div>
   )
 }
